@@ -18,7 +18,10 @@ public class Appartement {
 	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long numero;
+	 private Long id;
+	 
+	 @Column(name="numero")
+	 private Integer numero;
 
 	 @Column(name="surface")
 	 private Float surface;

@@ -1,16 +1,20 @@
 package bts.sio.azurimmo.service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bts.sio.azurimmo.model.Appartement;
+import bts.sio.azurimmo.model.dto.AppartementDTO;
+import bts.sio.azurimmo.model.mapper.AppartementMapper;
 import bts.sio.azurimmo.repository.AppartementRepository;
 import lombok.Data; 
 
 @Data 
-@Service // Contient la logique métier.
+@Service
 public class AppartementService {
 	
 	 @Autowired 
@@ -36,5 +40,28 @@ public class AppartementService {
 	 public List<Appartement> findBySurfaceGreaterThan(Integer surface) {
 	        return appartementRepository.findBySurfaceGreaterThan(surface);
 	 }
+	 
+	 public Optional<AppartementDTO> getAppartementDTO(Long id) {
+		 return appartementRepository.findById(id)
+				 				  .map(AppartementMapper::toDTO);
+	}
+	 
+	 public Optional<AppartementDTO> getAppartementsDTO(Long id) {
+		 return appartementRepository.findById(id)
+				 				  .map(AppartementMapper::toDTO);
+	}
+	
+	public List<AppartementDTO> getAppartementsDTO() {
+		 return appartementRepository.findAll()
+								  .stream()
+								  .map(AppartementMapper::toDTO)
+								  .collect(Collectors.toList());
+	}
+	
+	public AppartementDTO saveAppartementDTO(AppartementDTO dto) {
+			Appartement entity = AppartementMapper.toEntity(dto);
+			Appartement saved = appartementRepository.save(entity);
+			return AppartementMapper.toDTO(saved);
+		 }
 
 }
