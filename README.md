@@ -76,7 +76,7 @@ La Base URL est http://localhost:9008. Les endpoints de base pour l'entité Bati
 ## 🗃️ Documentation de l'API (Swagger/OpenAPI)
 L'API est documentée et testable via Swagger (OpenAPI).
 
-<ul>URL de la Documentation Swagger: `http://localhost:9008/swagger-ui/index.html` </ul>
+URL de la Documentation Swagger: http://localhost:9008/swagger-ui/index.html
 
 ## 🛠️ Commandes et Outils Utiles
 | Commande/Outil  | Description |
