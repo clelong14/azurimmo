@@ -61,7 +61,7 @@ public class AppartementService {
 	
     public AppartementDTO saveAppartementDTO(AppartementDTO dto) {
         Appartement entity = AppartementMapper.toEntity(dto);
-        if (dto.getBatiment() != null) {
+        if (dto.getBatiment() != null) { 
             Optional<Batiment> batiment = batimentRepository.findById(dto.getBatiment());
             batiment.ifPresent(entity::setBatiment);
         }
