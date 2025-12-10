@@ -20,6 +20,10 @@ public class BatimentService {
 		this.batimentRepository = batimentRepository;
 	}
 	
+	public List<Batiment> findByVille(String ville) {
+        return batimentRepository.findByVille(ville);
+    }
+	
 	public Optional<BatimentDTO> getBatimentDTO(Long id) {
 		 return batimentRepository.findById(id)
 				 				  .map(BatimentMapper::toDTO);

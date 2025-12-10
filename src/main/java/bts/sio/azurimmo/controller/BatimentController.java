@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.model.dto.BatimentDTO;
 import bts.sio.azurimmo.service.BatimentService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,7 +18,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController 
 @RequestMapping("/api/batiments") 
-@Tag(name = "Appartements", description = "Gestion des appartements")
+@Tag(name = "Batiments", description = "Gestion des batiments")
 public class BatimentController {
 	
 	private final BatimentService batimentService;
@@ -32,6 +33,12 @@ public class BatimentController {
 	 BatimentDTO savedDTO = batimentService.saveBatimentDTO(dto);
 	 return ResponseEntity.status(201).body(savedDTO); // 201 Created
 	}
+	
+	@GetMapping("/ville/{ville}")
+    @Operation(summary = "Recherche de ville")
+    public List<Batiment> findByVille(@PathVariable String ville) {
+        return batimentService.findByVille(ville);
+    }
 	
 	/*@GetMapping("/{batimentId}")
 	 public Optional <BatimentDTO> getBatimentDTO(@PathVariable long batimentId) {

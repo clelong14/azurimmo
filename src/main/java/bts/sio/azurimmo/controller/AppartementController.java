@@ -29,9 +29,8 @@ public class AppartementController {
 	}
     
     @GetMapping("/ville/{ville}")
-    @Operation(summary = "Recherche de ville grâce à leur ID")
+    @Operation(summary = "Recherche de ville")
     public List<Appartement> findByVille(@PathVariable String ville) {
-    	// @PathVariable : Récupère la valeur depuis l'URL.
         return appartementService.findByVille(ville);
     }
     
