@@ -64,7 +64,7 @@ spring.jpa.hibernate.ddl-auto=update
 L'application démarrera le serveur Tomcat embarqué sur le port configuré (par défaut 9008).
 
 ## 🌐 Endpoints de l'API (Ressource Batiment)
-La Base URL est http://localhost:9008. Les endpoints de base pour l'entité Batiment sont automatiquement exposés par Spring Data REST.
+La Base URL est `http://localhost:9008`. Les endpoints de base pour l'entité Batiment sont automatiquement exposés par Spring Data REST.
 | Action  | Méthode HTTP | Endpoint (Exemple) | Description |
 | :--------------- | :--------------- | :---------------| :--------------- |
 | Récupérer la liste des bâtiments  | GET |  /batiments | Retourne tous les bâtiments.
