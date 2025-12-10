@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import bts.sio.azurimmo.model.dto.BatimentDTO;
 import bts.sio.azurimmo.service.BatimentService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
-@RestController // Gère les requêtes HTTP et retourne du JSON.
-@RequestMapping("/api/batiments") // Chemin de base de l'API.
+@RestController 
+@RequestMapping("/api/batiments") 
+@Tag(name = "Appartements", description = "Gestion des appartements")
 public class BatimentController {
 	
 	private final BatimentService batimentService;
@@ -24,6 +27,7 @@ public class BatimentController {
 	}
 	
 	@PostMapping("/")
+	@Operation(summary = "Création de bâtiments")
 	 public ResponseEntity<BatimentDTO> createBatiment(@RequestBody BatimentDTO dto) {
 	 BatimentDTO savedDTO = batimentService.saveBatimentDTO(dto);
 	 return ResponseEntity.status(201).body(savedDTO); // 201 Created
@@ -35,6 +39,7 @@ public class BatimentController {
 	 }*/
 	
 	@GetMapping("/{batimentId}")
+	@Operation(summary = "Récupère un bâtiment par son ID")
 	public ResponseEntity<BatimentDTO> getBatimentReDTO(@PathVariable long batimentId) {
 	 return batimentService.getBatimentDTO(batimentId)
 			 .map(ResponseEntity::ok) // batiment trouvé → 200
@@ -42,6 +47,7 @@ public class BatimentController {
 	}
 	
 	@GetMapping("/all")
+	@Operation(summary = "Récupère tous les bâtiments")
 	 public List<BatimentDTO> getAllBatiments() {
 	 return batimentService.getBatimentsDTO();
 	}
