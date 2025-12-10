@@ -9,4 +9,6 @@ public class AppartementDTO {
 	private Integer numero;
 	private String description;
 	private Float surface;
+	private Integer nbPieces;
+	private Long batiment;
 }
