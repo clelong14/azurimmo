@@ -96,4 +96,4 @@ URL de la Documentation Swagger: http://localhost:9008/swagger-ui/index.html
 | Lombok | Réduction du code répétitif (boilerplate code).
 
 ## 📌 Versions
-Dernière version : 1.0 (Basé sur le document de spécifications fourni).
+Dernière version : 1.0.
