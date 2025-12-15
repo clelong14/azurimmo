@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Appartements", description = "Gestion des appartements")
 public class AppartementController {
 	
-   @Autowired // Injection de la couche Service.
+   @Autowired
     private AppartementService appartementService;
     
     @PostMapping("/")

@@ -22,7 +22,7 @@ public class AppartementService {
     @Autowired 
     private AppartementRepository appartementRepository;
     
-    @Autowired  // ← AJOUT
+    @Autowired
     private BatimentRepository batimentRepository;
 
     public Appartement saveAppartement(Appartement appartement) {
