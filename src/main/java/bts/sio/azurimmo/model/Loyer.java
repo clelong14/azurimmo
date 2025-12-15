@@ -1,8 +1,6 @@
 package bts.sio.azurimmo.model;
 
 import java.util.Date;
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,36 +8,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "contrat")
-public class Contrat {
+@Table(name = "loyer")
+public class Loyer {
 	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	 @Column(name="dateDebut")
-	 private Date dateDebut;
-
-	 @Column(name="dateFin")
-	 private Date dateFin;
+	 @Column(name="datePaiement")
+	 private Date datePaiement;
 	 
-	 @Column(name="montantBrut")
-	 private Double montantBrut;
-	 
-	 @Column(name="montantCharges")
-	 private Double montantCharges;
+	 @Column(name="montantPaye")
+	 private Double montantPaye;
 	 
 	 @ManyToOne
-	 @JoinColumn(name = "appartement_id")
-	 private Appartement appartement;
-	 
-	 @OneToMany(mappedBy = "contrat")
-	 private List<Loyer> loyer;
+	 @JoinColumn(name = "contrat_id")
+	 private Contrat contrat;
 }

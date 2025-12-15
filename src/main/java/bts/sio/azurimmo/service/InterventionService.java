@@ -54,8 +54,8 @@ public class InterventionService {
 	public InterventionDTO saveInterventionDTO(InterventionDTO dto) {
 		Intervention entity = InterventionMapper.toEntity(dto);
         if (dto.getAppartement() != null) { 
-            Optional<Appartement> batiment = appartementRepository.findById(dto.getAppartement());
-            batiment.ifPresent(entity::setAppartement);
+            Optional<Appartement> appartement = appartementRepository.findById(dto.getAppartement());
+            appartement.ifPresent(entity::setAppartement);
         }
         
         Intervention saved = interventionRepository.save(entity);
