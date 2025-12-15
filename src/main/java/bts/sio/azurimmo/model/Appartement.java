@@ -41,5 +41,8 @@ public class Appartement {
 	 
 	 @OneToMany(mappedBy = "appartement")
 	 private List<Intervention> interventions;
+	 
+	 @OneToMany(mappedBy = "appartement")
+	 private List<Contrat> contrat;
 
 }

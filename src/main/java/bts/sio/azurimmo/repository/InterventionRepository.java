@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository;
 import bts.sio.azurimmo.model.Intervention;
 
 @Repository
-public interface InterventionRepository
-        extends JpaRepository<Intervention, Long> {
+public interface InterventionRepository extends JpaRepository<Intervention, Long> {
 
     List<Intervention> findByAppartement_Id(long id);
 
