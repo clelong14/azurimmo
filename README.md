@@ -1,4 +1,4 @@
-# 🏢 Azurimmo - Application de Gestion Immobilière
+# Azurimmo - Application de Gestion Immobilière
 
 Azurimmo est une API RESTful centralisée pour la gestion complète des biens immobiliers (bâtiments, appartements), des contrats, des locataires, des loyers et des interventions (réparations, maintenance) pour la société civile immobilière AzurImmo.
 
