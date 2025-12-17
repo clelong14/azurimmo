@@ -1,4 +1,4 @@
-# 🏢 Azurimmo - Application de Gestion Immobilière
+# Azurimmo - Application de Gestion Immobilière
 
 Azurimmo est une API RESTful centralisée pour la gestion complète des biens immobiliers (bâtiments, appartements), des contrats, des locataires, des loyers et des interventions (réparations, maintenance) pour la société civile immobilière AzurImmo.
 
@@ -51,7 +51,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 3. Utilisez File | Import | Maven | Existing Maven Projects et sélectionnez le dossier azurimmo.
 
-## ▶️ Démarrage
+## Démarrage
 <ol>
   <li>Assurez-vous que votre serveur de base de données (MariaDB) est démarré.</li>
   <li>Exécutez l'application via Eclipse:</li>
@@ -63,7 +63,7 @@ spring.jpa.hibernate.ddl-auto=update
 </ul>
 L'application démarrera le serveur Tomcat embarqué sur le port configuré (par défaut 9008).
 
-## 🌐 Endpoints de l'API (Ressource Batiment)
+## Endpoints de l'API (Ressource Batiment)
 La Base URL est http://localhost:9008. Les endpoints de base pour l'entité Batiment sont automatiquement exposés par Spring Data REST.
 | Action  | Méthode HTTP | Endpoint (Exemple) | Description |
 | :--------------- | :--------------- | :---------------| :--------------- |
@@ -73,19 +73,19 @@ La Base URL est http://localhost:9008. Les endpoints de base pour l'entité Bati
 | Mettre à jour un bâtiment | PUT | /batiments/{id} | Met à jour le bâtiment spécifié.
 | Supprimer un bâtiment | DELETE | /batiments/{id} | Supprime le bâtiment spécifié.
 
-## 🗃️ Documentation de l'API (Swagger/OpenAPI)
+## Documentation de l'API (Swagger/OpenAPI)
 L'API est documentée et testable via Swagger (OpenAPI).
 
 URL de la Documentation Swagger: http://localhost:9008/swagger-ui/index.html
 
-## 🛠️ Commandes et Outils Utiles
+## Commandes et Outils Utiles
 | Commande/Outil  | Description |
 | :--------------- | :--------------- |
 | ``mvn install`` | Pour construire le projet et télécharger toutes les dépendances.
 | Clic droit sur pom.xml | Maven
 | Postman | Outil essentiel pour tester les requêtes ``POST``, ``PUT``, ``DELETE``.
 
-## 💻 Fabriqué avec
+## Fabriqué avec
 | Technologie | Rôle dans Azurimmo |
 | :--------------- | :--------------- |
 | Java (JDK 21) | Langage de développement principal.
@@ -95,5 +95,5 @@ URL de la Documentation Swagger: http://localhost:9008/swagger-ui/index.html
 | MariaDB | Base de données.
 | Lombok | Réduction du code répétitif (boilerplate code).
 
-## 📌 Versions
-Dernière version : 1.0.
+## Versions
+Dernière version : 1.0.1.
