@@ -11,5 +11,4 @@ public class LoyerDTO {
 	private Date datePaiement;
 	private Double montantPaye;
 	private Long contrat;
-
 }

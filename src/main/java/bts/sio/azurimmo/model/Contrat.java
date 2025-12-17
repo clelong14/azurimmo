@@ -42,4 +42,8 @@ public class Contrat {
 	 
 	 @OneToMany(mappedBy = "contrat")
 	 private List<Loyer> loyer;
+	 
+	 @ManyToOne
+	 @JoinColumn(name = "locataire_id")
+	 private Locataire locataire;
 }

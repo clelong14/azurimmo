@@ -7,6 +7,7 @@ import bts.sio.azurimmo.model.dto.LoyerDTO;
 public class LoyerMapper {
 	public static LoyerDTO toDTO(Loyer l) {
         if (l == null) return null;
+        
         LoyerDTO dto = new LoyerDTO();
         dto.setDatePaiement(l.getDatePaiement());
         dto.setMontantPaye(l.getMontantPaye());
