@@ -16,7 +16,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("Azurimmo API")
                         .description("API REST pour la gestion des bâtiments et appartements")
-                        .version("v1.0.0")
+                        .version("v1.0.1")
                         .contact(new Contact()
                                 .name("Équipe Azurimmo")
                                 .email("contact@azurimmo.com")
