@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locataires - Azurimmo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .search-bar {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            flex: 1;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.3rem;
+        }
+
+        .card .subtitle {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: #666;
+        }
+
+        .info-row .icon {
+            width: 35px;
+            height: 35px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .close {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #667eea;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .loading, .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+        }
+
+        .empty-state-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="accueil.html" class="logo">Azurimmo</a>
+            <ul class="nav-links">
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="batiments.html">Bâtiments</a></li>
+                <li><a href="appartements.html">Appartements</a></li>
+                <li><a href="contrats.html">Contrats</a></li>
+                <li><a href="locataires.html">Locataires</a></li>
+                <li><a href="interventions.html">Interventions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Locataires</h1>
+            <button class="btn" onclick="openModal()">+ Ajouter un locataire</button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="🔍 Rechercher un locataire..." onkeyup="filterLocataires()">
+        </div>
+
+        <div id="locatairesGrid" class="grid">
+            <div class="loading">Chargement des locataires...</div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nouveau Locataire</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <form id="locataireForm" onsubmit="saveLocataire(event)">
+                <div class="form-group">
+                    <label>Nom *</label>
+                    <input type="text" id="nom" required placeholder="Ex: Dupont">
+                </div>
+                <div class="form-group">
+                    <label>Prénom *</label>
+                    <input type="text" id="prenom" required placeholder="Ex: Jean">
+                </div>
+                <div class="form-group">
+                    <label>Téléphone *</label>
+                    <input type="tel" id="telephone" required placeholder="Ex: 0612345678">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="adresseMail" required placeholder="Ex: jean.dupont@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Date de naissance *</label>
+                    <input type="date" id="dateNaissance" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:9008/api/locataires';
+        let locataires = [];
+
+        async function loadLocataires() {
+            try {
+                const response = await fetch(`${API_URL}/all`);
+                locataires = await response.json();
+                displayLocataires(locataires);
+            } catch (error) {
+                document.getElementById('locatairesGrid').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <h2>Erreur de chargement</h2>
+                        <p>Impossible de charger les locataires.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function getInitials(nom, prenom) {
+            return (prenom.charAt(0) + nom.charAt(0)).toUpperCase();
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return 'N/A';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('fr-FR');
+        }
+
+        function displayLocataires(data) {
+            const grid = document.getElementById('locatairesGrid');
+            
+            if (data.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">👥</div>
+                        <h2>Aucun locataire</h2>
+                        <p>Commencez par ajouter votre premier locataire</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = data.map((l, i) => `
+                <div class="card" style="animation-delay: ${i * 0.1}s">
+                    <div class="card-header">
+                        <div class="avatar">${getInitials(l.nom, l.prenom)}</div>
+                        <div class="card-title">
+                            <h3>${l.prenom} ${l.nom}</h3>
+                            <div class="subtitle">Locataire</div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="icon">📞</div>
+                        <span>${l.telephone}</span>
+                    </div>
+                    <div class="info-row">
+                        <div class="icon">📧</div>
+                        <span>${l.adresseMail}</span>
+                    </div>
+                    <div class="info-row">
+                        <div class="icon">🎂</div>
+                        <span>${formatDate(l.dateNaissance)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterLocataires() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = locataires.filter(l => 
+                l.nom.toLowerCase().includes(search) || 
+                l.prenom.toLowerCase().includes(search) ||
+                l.adresseMail.toLowerCase().includes(search) ||
+                l.telephone.includes(search)
+            );
+            displayLocataires(filtered);
+        }
+
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('locataireForm').reset();
+        }
+
+        async function saveLocataire(event) {
+            event.preventDefault();
+            
+            const data = {
+                nom: document.getElementById('nom').value,
+                prenom: document.getElementById('prenom').value,
+                telephone: document.getElementById('telephone').value,
+                adresseMail: document.getElementById('adresseMail').value,
+                dateNaissance: new Date(document.getElementById('dateNaissance').value).toISOString()
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    closeModal();
+                    loadLocataires();
+                    alert('✅ Locataire créé avec succès !');
+                } else {
+                    alert('❌ Erreur lors de la création du locataire');
+                }
+            } catch (error) {
+                alert('❌ Erreur de connexion au serveur');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        loadLocataires();
+    </script>
+</body>
+</html>
