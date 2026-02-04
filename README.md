@@ -7,17 +7,17 @@ Elle est développée à l'aide du framework **Spring Boot** en Java.
 ### Architecture Applicative
 
 L'application est divisée en trois couches:
-1.  **Couche de présentation (Frontend)** : Interface web et/ou application mobile (Android/iOS).
+1.  **Couche de présentation (Frontend)** : Interface web.
 2.  **Couche métier (Backend)** : Une API Rest centralisée (cette application).
 3.  **Couche de données (Database)** : Base de données **MariaDB**.
 
 ### Pré-requis
 
--   **JDK (Java Development Kit)** : Version 21 ou supérieure.
--   **Maven** ou **Gradle** (Maven est utilisé pour l'importation dans Eclipse).
--   **MariaDB/MySQL** : Pour la base de données (avec un outil comme WampServer/phpmyadmin).
--   **IDE** : Eclipse (version pour le développement web).
--   **Outil de test API** : Postman.
+-   **JDK** : Version 21 ou supérieure.
+-   **Maven** : importation dans Eclipse.
+-   **MariaDB** : Pour la base de données (avec un outil comme WampServer/phpmyadmin).
+-   **Eclipse IDE** : Version pour le développement web.
+-   **Postman** : Outil de test.
 
 ## Installation
 
