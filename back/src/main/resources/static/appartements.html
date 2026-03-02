@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appartements - Azurimmo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .filters {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .filters input, .filters select {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .filters input:focus, .filters select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .info-row strong {
+            color: #333;
+        }
+
+        .description {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-header h2 {
+            color: #333;
+        }
+
+        .close {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #667eea;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .loading, .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+        }
+
+        .empty-state-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="accueil.html" class="logo">Azurimmo</a>
+            <ul class="nav-links">
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="batiments.html">Bâtiments</a></li>
+                <li><a href="appartements.html">Appartements</a></li>
+                <li><a href="contrats.html">Contrats</a></li>
+                <li><a href="locataires.html">Locataires</a></li>
+                <li><a href="interventions.html">Interventions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Appartements</h1>
+            <button class="btn" onclick="openModal()">+ Ajouter un appartement</button>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="🔍 Rechercher..." onkeyup="filterAppartements()">
+            <select id="surfaceFilter" onchange="filterAppartements()">
+                <option value="">Toutes les surfaces</option>
+                <option value="30">≥ 30 m²</option>
+                <option value="50">≥ 50 m²</option>
+                <option value="70">≥ 70 m²</option>
+                <option value="100">≥ 100 m²</option>
+            </select>
+            <select id="piecesFilter" onchange="filterAppartements()">
+                <option value="">Toutes les pièces</option>
+                <option value="1">1 pièce</option>
+                <option value="2">2 pièces</option>
+                <option value="3">3 pièces</option>
+                <option value="4">4+ pièces</option>
+            </select>
+        </div>
+
+        <div id="appartementsGrid" class="grid">
+            <div class="loading">Chargement des appartements...</div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nouvel Appartement</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <form id="appartementForm" onsubmit="saveAppartement(event)">
+                <div class="form-group">
+                    <label>Numéro *</label>
+                    <input type="number" id="numero" required placeholder="Ex: 101">
+                </div>
+                <div class="form-group">
+                    <label>Surface (m²) *</label>
+                    <input type="number" step="0.01" id="surface" required placeholder="Ex: 45.5">
+                </div>
+                <div class="form-group">
+                    <label>Nombre de pièces *</label>
+                    <input type="number" id="nbPieces" required placeholder="Ex: 2">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="description" placeholder="Décrivez l'appartement..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Bâtiment ID *</label>
+                    <input type="number" id="batiment" required placeholder="Ex: 1">
+                </div>
+                <button type="submit" class="btn" style="width: 100%">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:9008/api/appartements';
+        let appartements = [];
+
+        async function loadAppartements() {
+            try {
+                const response = await fetch(`${API_URL}/all`);
+                appartements = await response.json();
+                
+                const urlParams = new URLSearchParams(window.location.search);
+                const ville = urlParams.get('ville');
+                
+                if (ville) {
+                    document.getElementById('searchInput').value = ville;
+                }
+                
+                displayAppartements(appartements);
+            } catch (error) {
+                document.getElementById('appartementsGrid').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <h2>Erreur de chargement</h2>
+                        <p>Impossible de charger les appartements.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function displayAppartements(data) {
+            const grid = document.getElementById('appartementsGrid');
+            
+            if (data.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🏠</div>
+                        <h2>Aucun appartement</h2>
+                        <p>Commencez par ajouter votre premier appartement</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = data.map((a, i) => `
+                <div class="card" style="animation-delay: ${i * 0.1}s">
+                    <div class="card-header">
+                        <div class="badge">${a.nbPieces} pièce${a.nbPieces > 1 ? 's' : ''}</div>
+                    </div>
+                    <h3>Appartement n°${a.numero}</h3>
+                    <div class="info-row">
+                        <span><strong>Surface:</strong></span>
+                        <span>${a.surface} m²</span>
+                    </div>
+                    <div class="info-row">
+                        <span><strong>Bâtiment:</strong></span>
+                        <span>#${a.batiment}</span>
+                    </div>
+                    ${a.description ? `<div class="description">${a.description}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function filterAppartements() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const surfaceMin = document.getElementById('surfaceFilter').value;
+            const pieces = document.getElementById('piecesFilter').value;
+
+            let filtered = appartements.filter(a => {
+                const matchSearch = a.numero.toString().includes(search) || 
+                                  (a.description && a.description.toLowerCase().includes(search));
+                const matchSurface = !surfaceMin || a.surface >= parseFloat(surfaceMin);
+                const matchPieces = !pieces || 
+                                  (pieces === '4' ? a.nbPieces >= 4 : a.nbPieces === parseInt(pieces));
+                
+                return matchSearch && matchSurface && matchPieces;
+            });
+
+            displayAppartements(filtered);
+        }
+
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('appartementForm').reset();
+        }
+
+        async function saveAppartement(event) {
+            event.preventDefault();
+            
+            const data = {
+                numero: parseInt(document.getElementById('numero').value),
+                surface: parseFloat(document.getElementById('surface').value),
+                nbPieces: parseInt(document.getElementById('nbPieces').value),
+                description: document.getElementById('description').value,
+                batiment: parseInt(document.getElementById('batiment').value)
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    closeModal();
+                    loadAppartements();
+                    alert('✅ Appartement créé avec succès !');
+                } else {
+                    alert('❌ Erreur lors de la création de l\'appartement');
+                }
+            } catch (error) {
+                alert('❌ Erreur de connexion au serveur');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        loadAppartements();
+    </script>
+</body>
+</html>

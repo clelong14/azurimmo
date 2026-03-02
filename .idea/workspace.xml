@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bdd/azurimmo.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lombok.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/AzurimmoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/config/SwaggerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/AppartementController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/BatimentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/ContratController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/InterventionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/LocataireController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/LoyerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Appartement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Batiment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Contrat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Intervention.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Locataire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Loyer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/AppartementDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/BatimentDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/ContratDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/InterventionDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/LocataireDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/LoyerDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/AppartementMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/BatimentMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/ContratMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/InterventionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/LocataireMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/LoyerMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/AppartementRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/BatimentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/ContratRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/InterventionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/LocataireRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/LoyerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/AppartementService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/BatimentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/ContratService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/InterventionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/LocataireService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/LoyerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/accueil.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/appartements.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/batiments.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/contrats.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/interventions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/locataires.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/bts/sio/azurimmo/AzurimmoApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="39Knh7k8i5UV9CrleWNukCrI9kt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AzurimmoApplication.executor": "Run",
+    "Maven.azurimmo [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.AzurimmoApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "E:/SIO2/IdeaProjects/azurimmo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.AzurimmoApplication">
+    <configuration name="AzurimmoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bts.sio.azurimmo.AzurimmoApplication" />
+      <module name="azurimmo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bts.sio.azurimmo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AzurimmoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="azurimmo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="bts.sio.azurimmo.AzurimmoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AzurimmoApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="" />
+      <created>1770453745724</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770453745724</updated>
+      <workItem from="1770453746973" duration="1317000" />
+      <workItem from="1772443393298" duration="1073000" />
+      <workItem from="1772453291147" duration="877000" />
+      <workItem from="1772454205879" duration="52000" />
+      <workItem from="1772454263198" duration="169000" />
+      <workItem from="1772463325593" duration="86000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
