@@ -4,63 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bdd/azurimmo.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lombok.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/AzurimmoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/config/SwaggerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/AppartementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/BatimentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/ContratController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/InterventionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/LocataireController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/controller/LoyerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Appartement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Batiment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Contrat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Intervention.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Locataire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/Loyer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/AppartementDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/BatimentDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/ContratDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/InterventionDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/LocataireDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/dto/LoyerDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/AppartementMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/BatimentMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/ContratMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/InterventionMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/LocataireMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/model/mapper/LoyerMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/AppartementRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/BatimentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/ContratRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/InterventionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/LocataireRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/repository/LoyerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/AppartementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/BatimentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/ContratService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/InterventionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/LocataireService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bts/sio/azurimmo/service/LoyerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/accueil.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/appartements.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/batiments.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/contrats.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/interventions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/locataires.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bts/sio/azurimmo/AzurimmoApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,8 +30,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.AzurimmoApplication.executor": "Run",
+    "Maven.azurimmo [clean].executor": "Run",
     "Maven.azurimmo [install].executor": "Run",
+    "Maven.azurimmo [package].executor": "Run",
+    "Maven.azurimmo [verify].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -165,7 +113,7 @@
       <workItem from="1772453291147" duration="877000" />
       <workItem from="1772454205879" duration="52000" />
       <workItem from="1772454263198" duration="169000" />
-      <workItem from="1772463325593" duration="86000" />
+      <workItem from="1772463325593" duration="407000" />
     </task>
     <servers />
   </component>
