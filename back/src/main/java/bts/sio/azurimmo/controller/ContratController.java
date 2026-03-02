@@ -18,7 +18,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/api/contrats") 
+@RequestMapping("/contrats")
 @Tag(name = "Contrats", description = "Gestion des contrats")
 
 public class ContratController {
