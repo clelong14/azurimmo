@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="fix:">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="refactor: update API endpoints and improve frontend structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/test/java/bts/sio/azurimmo/AzurimmoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/bts/sio/azurimmo/AzurimmoApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,44 +58,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.AzurimmoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.azurimmo [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.azurimmo [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.azurimmo [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.azurimmo [verify].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AzurimmoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/SIO2/IdeaProjects/azurimmo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.AzurimmoApplication.executor": "Run",
+    "Maven.azurimmo [clean].executor": "Run",
+    "Maven.azurimmo [install].executor": "Run",
+    "Maven.azurimmo [package].executor": "Run",
+    "Maven.azurimmo [verify].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.AzurimmoApplication.executor": "Run",
+    "git-widget-placeholder": "front",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "E:/SIO2/IdeaProjects/azurimmo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\IntelliJ IDEA 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src\assets" />
@@ -166,7 +158,7 @@
       <workItem from="1772463325593" duration="568000" />
       <workItem from="1772463897330" duration="214000" />
       <workItem from="1772464114587" duration="1102000" />
-      <workItem from="1772465245228" duration="1194000" />
+      <workItem from="1772465245228" duration="1823000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: README file moved">
       <option name="closed" value="true" />
@@ -176,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772463835827</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor: update API endpoints and improve frontend structure">
+      <option name="closed" value="true" />
+      <created>1772466487675</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772466487675</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +184,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor: README file moved" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: README file moved" />
+    <MESSAGE value="refactor: update API endpoints and improve frontend structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: update API endpoints and improve frontend structure" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
