@@ -1,23 +1,21 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import api from '@/service/api' // Ton instance axios qui pointe sur le port 9008
+import { ref, onMounted, computed } from 'vue'
+import api from '@/service/api'
 
 const batiments = ref([])
 const loading = ref(true)
 
+// Statistiques calculées
+const totalAppartements = computed(() => {
+  return batiments.value.reduce((acc, b) => acc + (b.appartements?.length || 0), 0)
+})
+
 onMounted(async () => {
   try {
-    // 1. On appelle ton endpoint spécifique
     const response = await api.get('batiments/all')
-
-    // 2. DEBUG : Fais F12 dans ton navigateur pour voir ce message !
-    console.log("Données reçues par Vue :", response.data)
-
-    // 3. CORRECTION : On utilise .value et on prend response.data directement
     batiments.value = response.data
-
   } catch (error) {
-    console.error("Erreur de connexion :", error)
+    console.error("Erreur :", error)
   } finally {
     loading.value = false
   }
@@ -25,25 +23,63 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="page-container">
-    <header class="page-header">
-      <h1>AZURIMMO</h1>
-      <p v-if="!loading">Gestion des {{ batiments.length }} bâtiments</p>
+  <div class="home-container">
+    <header class="hero">
+      <div class="hero-text">
+        <h1>Bienvenue sur <span class="brand">AzurImmo</span></h1>
+        <p>Votre assistant de gestion immobilière intelligent.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn-primary">Ajouter un bâtiment</button>
+        <button class="btn-outline">Voir les rapports</button>
+      </div>
     </header>
 
-    <main class="content">
-      <div v-if="loading">Chargement en cours...</div>
+    <section class="stats-row">
+      <div class="stat-card">
+        <span class="stat-icon">🏢</span>
+        <div class="stat-info">
+          <span class="stat-value">{{ batiments.length }}</span>
+          <span class="stat-label">Bâtiments</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">🔑</span>
+        <div class="stat-info">
+          <span class="stat-value">{{ totalAppartements }}</span>
+          <span class="stat-label">Appartements</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">📈</span>
+        <div class="stat-info">
+          <span class="stat-value">98%</span>
+          <span class="stat-label">Occupation</span>
+        </div>
+      </div>
+    </section>
 
-      <div v-else-if="batiments.length > 0" class="grid">
-        <div v-for="(b, index) in batiments" :key="index" class="card">
-          <h3>{{ b.ville || 'Bâtiment sans nom' }}</h3>
-          <p>{{ b.adresse }}</p>
-          <small>{{ b.appartements ? b.appartements.length : 0 }} appartement(s)</small>
+    <main class="main-content">
+      <div class="section-header">
+        <h2>Vos Propriétés Récentes</h2>
+        <router-link to="/batiments" class="link">Voir tout →</router-link>
+      </div>
+
+      <div v-if="loading" class="loader">Chargement...</div>
+
+      <div v-else-if="batiments.length > 0" class="recent-grid">
+        <div v-for="b in batiments.slice(0, 3)" :key="b.id" class="building-item">
+          <div class="building-img">🏢</div>
+          <div class="building-details">
+            <h3>{{ b.ville }}</h3>
+            <p>{{ b.adresse }}</p>
+            <span class="badge">{{ b.appartements?.length || 0 }} unités</span>
+          </div>
         </div>
       </div>
 
-      <div v-else>
-        <p>Aucun bâtiment trouvé. Vérifiez la console (F12).</p>
+      <div v-else class="empty-state">
+        <p>Commencez par ajouter votre premier bâtiment !</p>
       </div>
     </main>
   </div>

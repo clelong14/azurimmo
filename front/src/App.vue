@@ -1,4 +1,5 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
   <div id="app-layout">
@@ -11,4 +12,6 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import "@/assets/main.css";
+</style>
