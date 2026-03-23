@@ -38,7 +38,7 @@ public class AppartementService {
         return appartementRepository.findByBatiment_Id(id);
     }
 	 
-    public List<Appartement> findBySurfaceGreaterThan(Integer surface) {
+    public List<Appartement> findBySurfaceGreaterThan(Float surface) {
         return appartementRepository.findBySurfaceGreaterThan(surface);
     }
 	 
@@ -47,11 +47,6 @@ public class AppartementService {
                 .map(AppartementMapper::toDTO);
     }
 	 
-    public Optional<AppartementDTO> getAppartementsDTO(Long id) {
-        return appartementRepository.findById(id)
-                .map(AppartementMapper::toDTO);
-    }
-	
     public List<AppartementDTO> getAppartementsDTO() {
         return appartementRepository.findAll()
                 .stream()

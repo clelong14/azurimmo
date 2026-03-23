@@ -25,18 +25,18 @@ public class LocataireController {
 	@Autowired
     private LocataireService locataireService;
 	
-	@PostMapping("/")
+	@PostMapping
     @Operation(summary = "Création de Locataires")
 	 public ResponseEntity<LocataireDTO> createLocataire(@RequestBody LocataireDTO dto) {
 		LocataireDTO savedDTO = locataireService.saveLocataireDTO(dto);
 	 return ResponseEntity.status(201).body(savedDTO); // 201 Created
 	}
 	
-	 @GetMapping("/locataire/{LocataireId}")
-	    @Operation(summary = "Recherche des Locataires d'un contrat grâce à son ID")
-	    public List<Locataire> getLocatairesParContrat(@PathVariable long locataireId) {
-	            return locataireService.getLocatairesParContrat(locataireId);
-	    }
+	@GetMapping({"/contrat/{contratId}", "/locataire/{contratId}"})
+	@Operation(summary = "Recherche des locataires d'un contrat grâce à son ID")
+	public List<Locataire> getLocatairesParContrat(@PathVariable long contratId) {
+		return locataireService.getLocatairesParContrat(contratId);
+	}
 	 
 	 @GetMapping("/{locataireId}")
 	    @Operation(summary = "Récupère un Locataire par son ID")

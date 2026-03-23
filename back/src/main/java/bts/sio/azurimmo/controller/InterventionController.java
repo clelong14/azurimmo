@@ -25,18 +25,18 @@ public class InterventionController {
 	@Autowired
     private InterventionService interventionService;
 	
-	@PostMapping("/")
+	@PostMapping
     @Operation(summary = "Création d'interventions")
 	 public ResponseEntity<InterventionDTO> createIntervention(@RequestBody InterventionDTO dto) {
 		InterventionDTO savedDTO = interventionService.saveInterventionDTO(dto);
 	 return ResponseEntity.status(201).body(savedDTO); // 201 Created
 	}
 	
-	 @GetMapping("/intervention/{interventionId}")
-	    @Operation(summary = "Recherche des interventions d'un appartement grâce à son ID")
-	    public List<Intervention> getInterventionsParAppartement(@PathVariable long interventionId) {
-	            return interventionService.getInterventionsParAppartement(interventionId);
-	    }
+	@GetMapping({"/appartement/{appartementId}", "/intervention/{appartementId}"})
+	@Operation(summary = "Recherche des interventions d'un appartement grâce à son ID")
+	public List<Intervention> getInterventionsParAppartement(@PathVariable long appartementId) {
+		return interventionService.getInterventionsParAppartement(appartementId);
+	}
 	 
 	 @GetMapping("/{interventionId}")
 	    @Operation(summary = "Récupère une intervention par son ID")

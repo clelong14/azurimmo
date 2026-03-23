@@ -25,18 +25,18 @@ public class LoyerController {
 	@Autowired
     private LoyerService loyerService;
 	
-	@PostMapping("/")
+	@PostMapping
     @Operation(summary = "Création de loyers")
 	 public ResponseEntity<LoyerDTO> createLoyer(@RequestBody LoyerDTO dto) {
 		LoyerDTO savedDTO = loyerService.saveLoyerDTO(dto);
 	 return ResponseEntity.status(201).body(savedDTO); // 201 Created
 	}
 	
-	 @GetMapping("/loyer/{loyerId}")
-	    @Operation(summary = "Recherche des loyers d'un contrat grâce à son ID")
-	    public List<Loyer> getLoyersParContrat(@PathVariable long loyerId) {
-	            return loyerService.getLoyersParContrat(loyerId);
-	    }
+	@GetMapping({"/contrat/{contratId}", "/loyer/{contratId}"})
+	@Operation(summary = "Recherche des loyers d'un contrat grâce à son ID")
+	public List<Loyer> getLoyersParContrat(@PathVariable long contratId) {
+		return loyerService.getLoyersParContrat(contratId);
+	}
 	 
 	 @GetMapping("/{loyerId}")
 	    @Operation(summary = "Récupère un loyer par son ID")

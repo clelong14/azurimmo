@@ -9,6 +9,7 @@ public class AppartementMapper {
     public static AppartementDTO toDTO(Appartement a) {
         if (a == null) return null;
         AppartementDTO dto = new AppartementDTO();
+        dto.setId(a.getId());
         dto.setNumero(a.getNumero());
         dto.setDescription(a.getDescription());
         dto.setSurface(a.getSurface());
@@ -16,6 +17,7 @@ public class AppartementMapper {
         
         if (a.getBatiment() != null) {
             dto.setBatiment(a.getBatiment().getId());
+            dto.setBatimentAdresse(a.getBatiment().getAdresse());
         }
         return dto;
     }
@@ -23,6 +25,7 @@ public class AppartementMapper {
     public static Appartement toEntity(AppartementDTO dto) {
         if (dto == null) return null;
         Appartement a = new Appartement();
+        a.setId(dto.getId());
         a.setNumero(dto.getNumero());
         a.setDescription(dto.getDescription());
         a.setSurface(dto.getSurface());

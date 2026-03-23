@@ -39,11 +39,6 @@ public class ContratService {
                 .map(ContratMapper::toDTO);
     }
 	
-	public Optional<ContratDTO> getContratsDTO(Long id) {
-        return contratRepository.findById(id)
-                .map(ContratMapper::toDTO);
-    }
-	
 	public List<ContratDTO> getContratsDTO() {
 		 return contratRepository.findAll()
 		 .stream()

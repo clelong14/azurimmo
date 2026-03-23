@@ -21,7 +21,7 @@ public class AppartementController {
    @Autowired
     private AppartementService appartementService;
     
-    @PostMapping("/")
+    @PostMapping
     @Operation(summary = "Création d'appartements")
 	 public ResponseEntity<AppartementDTO> createAppartement(@RequestBody AppartementDTO dto) {
     AppartementDTO savedDTO = appartementService.saveAppartementDTO(dto);
@@ -42,7 +42,7 @@ public class AppartementController {
     
     @GetMapping("/surface/{surface}")
     @Operation(summary = "Recherche des appartements avec une surface minimale")
-    public List<Appartement> findBySurfaceGreaterThan(@PathVariable Integer surface) {
+    public List<Appartement> findBySurfaceGreaterThan(@PathVariable Float surface) {
             return appartementService.findBySurfaceGreaterThan(surface);
     }
     

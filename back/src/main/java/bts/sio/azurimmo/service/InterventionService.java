@@ -39,11 +39,6 @@ public class InterventionService {
                 .map(InterventionMapper::toDTO);
     }
 	
-	public Optional<InterventionDTO> getInterventionsDTO(Long id) {
-        return interventionRepository.findById(id)
-                .map(InterventionMapper::toDTO);
-    }
-	
 	public List<InterventionDTO> getInterventionsDTO() {
 		 return interventionRepository.findAll()
 		 .stream()

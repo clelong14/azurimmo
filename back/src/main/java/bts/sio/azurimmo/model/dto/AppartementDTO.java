@@ -6,9 +6,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AppartementDTO {
+	private Long id;
 	private Integer numero;
 	private String description;
 	private Float surface;
 	private Integer nbPieces;
 	private Long batiment;
+	private String batimentAdresse;
 }
