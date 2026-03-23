@@ -42,7 +42,7 @@ public class AppartementController {
     
     @GetMapping("/surface/{surface}")
     @Operation(summary = "Recherche des appartements avec une surface minimale")
-    public List<Appartement> findBySurfaceGreaterThan(@PathVariable Integer surface) {
+    public List<Appartement> findBySurfaceGreaterThan(@PathVariable Float surface) {
             return appartementService.findBySurfaceGreaterThan(surface);
     }
     

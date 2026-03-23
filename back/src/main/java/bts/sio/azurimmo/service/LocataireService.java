@@ -38,12 +38,6 @@ public class LocataireService {
                 .map(LocataireMapper::toDTO);
     }
     
-    // CORRECTION : Méthode dupliquée - à supprimer ou renommer
-    public Optional<LocataireDTO> getLocatairesDTO(Long id) {
-        return locataireRepository.findById(id)
-                .map(LocataireMapper::toDTO);
-    }
-    
     public List<LocataireDTO> getLocatairesDTO() {
         return locataireRepository.findAll()
             .stream()

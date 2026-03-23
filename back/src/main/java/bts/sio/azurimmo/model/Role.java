@@ -13,7 +13,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="libelle")
+    @Column(name = "libelle", nullable = false, unique = true, length = 50)
     private String libelle;
 
     @OneToMany(mappedBy = "role")

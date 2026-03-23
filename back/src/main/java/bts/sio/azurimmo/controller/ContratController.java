@@ -33,11 +33,11 @@ public class ContratController {
 	 return ResponseEntity.status(201).body(savedDTO); // 201 Created
 	}
 	
-	 @GetMapping("/contrat/{contratId}")
-	    @Operation(summary = "Recherche des contrats d'un appartement grâce à son ID")
-	    public List<Contrat> getContratsParAppartement(@PathVariable long contratId) {
-	            return contratService.getContratsParAppartement(contratId);
-	    }
+	@GetMapping({"/appartement/{appartementId}", "/contrat/{appartementId}"})
+	@Operation(summary = "Recherche des contrats d'un appartement grâce à son ID")
+	public List<Contrat> getContratsParAppartement(@PathVariable long appartementId) {
+		return contratService.getContratsParAppartement(appartementId);
+	}
 	 
 	 @GetMapping("/{contratId}")
 	    @Operation(summary = "Récupère un contrat par son ID")

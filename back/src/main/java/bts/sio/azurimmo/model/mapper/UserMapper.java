@@ -10,6 +10,7 @@ public class UserMapper {
         if (u == null) return null;
 
         UserDTO dto = new UserDTO();
+        dto.setId(u.getId());
         dto.setAdresseMail(u.getAdresseMail());
         dto.setMotDePasse(null);
 
@@ -23,6 +24,7 @@ public class UserMapper {
     public static User toEntity(UserDTO dto) {
         if (dto == null) return null;
         User u = new User();
+        u.setId(dto.getId());
         u.setAdresseMail(dto.getAdresseMail());
         u.setMotDePasse(dto.getMotDePasse());
 

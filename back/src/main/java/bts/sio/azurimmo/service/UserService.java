@@ -6,7 +6,6 @@ import bts.sio.azurimmo.model.dto.UserDTO;
 import bts.sio.azurimmo.model.mapper.UserMapper;
 import bts.sio.azurimmo.repository.RoleRepository;
 import bts.sio.azurimmo.repository.UserRepository;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Data
 @Service
 public class UserService {
 
@@ -28,7 +26,6 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // Récupérer tous les users
     public List<UserDTO> getAllUsersDTO() {
         return userRepository.findAll()
                 .stream()
@@ -36,20 +33,20 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-    // Récupérer un user par ID
     public Optional<UserDTO> getUserDTO(Long id) {
         return userRepository.findById(id)
                 .map(UserMapper::toDTO);
     }
 
-    // Créer un user
     public UserDTO saveUserDTO(UserDTO dto) {
+        if (userRepository.existsByAdresseMail(dto.getAdresseMail())) {
+            throw new RuntimeException("Cet email est déjà utilisé");
+        }
+
         User entity = UserMapper.toEntity(dto);
 
-        // On encode le mot de passe avant de sauvegarder
         entity.setMotDePasse(passwordEncoder.encode(dto.getMotDePasse()));
 
-        // On rattache le rôle si fourni
         if (dto.getRole() != null) {
             Optional<Role> role = roleRepository.findById(dto.getRole());
             role.ifPresent(entity::setRole);
@@ -59,36 +56,37 @@ public class UserService {
         return UserMapper.toDTO(saved);
     }
 
-    // Supprimer un user
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 
     public UserDTO login(String adresseMail, String motDePasse) {
-        User user = userRepository.findByAdresseMail(adresseMail);
-
-        if (user == null) {
-            throw new RuntimeException("Email introuvable");
-        }
+        User user = userRepository.findByAdresseMail(adresseMail)
+                .orElseThrow(() -> new RuntimeException("Identifiants invalides"));
 
         if (!passwordEncoder.matches(motDePasse, user.getMotDePasse())) {
-            throw new RuntimeException("Mot de passe incorrect");
+            throw new RuntimeException("Identifiants invalides");
         }
 
         return UserMapper.toDTO(user);
     }
+
     public UserDTO register(UserDTO dto) {
-        // Vérifie si l'email existe déjà
-        User existing = userRepository.findByAdresseMail(dto.getAdresseMail());
-        if (existing != null) {
+        if (userRepository.existsByAdresseMail(dto.getAdresseMail())) {
             throw new RuntimeException("Cet email est déjà utilisé");
         }
+
         Role defaultRole = roleRepository.findByLibelleIgnoreCase("USER");
         if (defaultRole == null) {
             throw new RuntimeException("Role USER introuvable. Contactez l'administrateur.");
         }
+
         dto.setRole(defaultRole.getId());
-        return saveUserDTO(dto); // saveUserDTO encode déjà le mot de passe
+        User entity = UserMapper.toEntity(dto);
+        entity.setMotDePasse(passwordEncoder.encode(dto.getMotDePasse()));
+        entity.setRole(defaultRole);
+        User saved = userRepository.save(entity);
+        return UserMapper.toDTO(saved);
     }
 
 }

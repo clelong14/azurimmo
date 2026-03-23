@@ -12,10 +12,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="adresseMail")
+    @Column(name = "adresseMail", nullable = false, unique = true, length = 150)
     private String adresseMail;
 
-    @Column(name="motDePasse")
+    @Column(name = "motDePasse", nullable = false, length = 100)
     private String motDePasse;
 
     @ManyToOne

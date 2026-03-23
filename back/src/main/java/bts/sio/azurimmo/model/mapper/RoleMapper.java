@@ -10,6 +10,7 @@ public class RoleMapper {
     public static RoleDTO toDTO(Role r) {
         if (r == null) return null;
         RoleDTO dto = new RoleDTO();
+        dto.setId(r.getId());
         dto.setLibelle(r.getLibelle());
         if (r.getUsers() != null) {
             dto.setUsers(
@@ -25,6 +26,7 @@ public class RoleMapper {
     public static Role toEntity(RoleDTO dto) {
         if (dto == null) return null;
         Role r = new Role();
+        r.setId(dto.getId());
         r.setLibelle(dto.getLibelle());
         return r;
     }

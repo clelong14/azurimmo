@@ -39,11 +39,6 @@ public class LoyerService {
                 .map(LoyerMapper::toDTO);
     }
 	
-	public Optional<LoyerDTO> getLoyersDTO(Long id) {
-        return loyerRepository.findById(id)
-                .map(LoyerMapper::toDTO);
-    }
-	
 	public List<LoyerDTO> getLoyersDTO() {
 		 return loyerRepository.findAll()
 		 .stream()

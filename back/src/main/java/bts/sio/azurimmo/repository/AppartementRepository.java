@@ -16,6 +16,6 @@ public interface AppartementRepository extends JpaRepository<Appartement, Long> 
 	// Query Method : Recherche par la Ville du Batiment (JOIN implicite).
 	List<Appartement> findByBatiment_Ville(String ville);
 	
-	// Query Method : Recherche des appartements dont la Surface est Supérieure à la valeur.
-	List<Appartement> findBySurfaceGreaterThan(Integer surface);
+	// Query Method : Recherche des appartements dont la Surface est supérieure à la valeur.
+	List<Appartement> findBySurfaceGreaterThan(Float surface);
 }
