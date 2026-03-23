@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +17,11 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Appartements", description = "Gestion des appartements")
 public class AppartementController {
 	
-   @Autowired
-    private AppartementService appartementService;
+    private final AppartementService appartementService;
+
+    public AppartementController(AppartementService appartementService) {
+        this.appartementService = appartementService;
+    }
     
     @PostMapping
     @Operation(summary = "Création d'appartements")

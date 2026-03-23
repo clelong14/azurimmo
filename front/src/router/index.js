@@ -7,27 +7,68 @@ import ContratsView      from '@/views/Contrats.vue'
 import LocatairesView    from '@/views/Locataires.vue'
 import InterventionsView from '@/views/Interventions.vue'
 import AdminView         from '@/views/Admin.vue'
-import RegisterView from '@/views/Register.vue'
+import RegisterView      from '@/views/Register.vue'
+import AccountSettingsView from '@/views/AccountSettings.vue'
+import PublicHomeView    from '@/views/PublicHome.vue'
+import ServicesView      from '@/views/ServicesView.vue'
+import PrivacyPolicy     from '@/views/PrivacyPolicy.vue'
+import TermsOfUse        from '@/views/TermsOfUse.vue'
+import ContactPage       from '@/views/ContactPage.vue'
 
 const routes = [
   { path: '/login', component: LoginView, meta: { public: true } },
-  { path: '/',              component: AccueilView,       meta: { requiresAuth: true } },
-  { path: '/batiments',     component: BatimentsView,     meta: { requiresAuth: true } },
-  { path: '/appartements',  component: AppartementsView,  meta: { requiresAuth: true } },
-  { path: '/contrats',      component: ContratsView,      meta: { requiresAuth: true } },
-  { path: '/locataires',    component: LocatairesView,    meta: { requiresAuth: true } },
-  { path: '/interventions', component: InterventionsView, meta: { requiresAuth: true } },
-  { path: '/admin',         component: AdminView,         meta: { requiresAuth: true, requiresAdmin: true } },
   { path: '/register', component: RegisterView, meta: { public: true } },
+  { path: '/accueil', component: PublicHomeView, meta: { requiresAuth: true, isPublic: true } },
+  { path: '/services', component: ServicesView, meta: { requiresAuth: true, isPublic: true } },
+  { path: '/confidentialite', component: PrivacyPolicy, meta: { requiresAuth: true, isPublic: true } },
+  { path: '/conditions', component: TermsOfUse, meta: { requiresAuth: true, isPublic: true } },
+  { path: '/contact', component: ContactPage, meta: { requiresAuth: true, isPublic: true } },
+  { path: '/account', component: AccountSettingsView, meta: { requiresAuth: true } },
+  { path: '/', redirect: '/accueil' },
+  { path: '/tableau-de-bord', component: AccueilView, meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
+  { path: '/batiments',     component: BatimentsView,     meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
+  { path: '/appartements',  component: AppartementsView,  meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
+  { path: '/contrats',      component: ContratsView,      meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
+  { path: '/locataires',    component: LocatairesView,    meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
+  { path: '/interventions', component: InterventionsView, meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
+  { path: '/admin',         component: AdminView,         meta: { requiresAuth: true, requiresAdmin: true } },
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })
 
 router.beforeEach((to, _from) => {
   const user = JSON.parse(localStorage.getItem('azurimmo-user') || 'null')
-  if (to.meta.public && user)                              return '/'
-  if (to.meta.requiresAuth && !user)                       return '/login'
-  if (to.meta.requiresAdmin && user?.role !== 'admin')     return '/'
+  
+  // Si pas de user et route protégée
+  if (to.meta.requiresAuth && !user) {
+    return '/login'
+  }
+  
+  // Si user existe et page publique (login/register)
+  if (to.meta.public && user) {
+    if (user?.roleLibelle === 'USER') {
+      return '/accueil'
+    }
+    return '/tableau-de-bord'
+  }
+  
+  // Protéger les routes admin uniquement
+  if (to.meta.requiresAdmin && user?.roleLibelle !== 'ADMIN') {
+    return '/accueil'
+  }
+  
+  // Protéger les routes admin/gestionnaire
+  if (to.meta.requiresAdminOrGestionnaire && user?.roleLibelle === 'USER') {
+    return '/accueil'
+  }
+  
+  // Redirection par défaut selon le rôle pour les routes publiques
+  if (user && (to.path === '/' || to.path === '' || to.path === '/tableau-de-bord')) {
+    if (user.roleLibelle === 'USER') {
+      return '/accueil'
+    }
+  }
+  
   return true
 })
 

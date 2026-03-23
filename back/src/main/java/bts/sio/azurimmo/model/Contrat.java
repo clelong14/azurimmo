@@ -41,7 +41,7 @@ public class Contrat {
 	 private Appartement appartement;
 	 
 	 @OneToMany(mappedBy = "contrat")
-	 private List<Loyer> loyer;
+	 private List<Loyer> loyers;
 	 
 	 @ManyToOne
 	 @JoinColumn(name = "locataire_id")

@@ -15,9 +15,9 @@ public class BatimentMapper {
 		dto.setAdresse(b.getAdresse());
 		dto.setVille(b.getVille());
 
-		if (b.getAppartement() != null) {
+		if (b.getAppartements() != null) {
 			dto.setAppartements(
-					b.getAppartement()
+					b.getAppartements()
 							.stream()
 							.map(AppartementMapper::toDTO)
 							.collect(Collectors.toList())

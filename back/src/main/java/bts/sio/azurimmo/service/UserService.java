@@ -6,7 +6,6 @@ import bts.sio.azurimmo.model.dto.UserDTO;
 import bts.sio.azurimmo.model.mapper.UserMapper;
 import bts.sio.azurimmo.repository.RoleRepository;
 import bts.sio.azurimmo.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +16,15 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public List<UserDTO> getAllUsersDTO() {
         return userRepository.findAll()
@@ -76,9 +76,9 @@ public class UserService {
             throw new RuntimeException("Cet email est déjà utilisé");
         }
 
-        Role defaultRole = roleRepository.findByLibelleIgnoreCase("USER");
+        Role defaultRole = roleRepository.findByLibelleIgnoreCase("GESTIONNAIRE");
         if (defaultRole == null) {
-            throw new RuntimeException("Role USER introuvable. Contactez l'administrateur.");
+            throw new RuntimeException("Role GESTIONNAIRE introuvable. Contactez l'administrateur.");
         }
 
         dto.setRole(defaultRole.getId());
@@ -88,5 +88,4 @@ public class UserService {
         User saved = userRepository.save(entity);
         return UserMapper.toDTO(saved);
     }
-
 }

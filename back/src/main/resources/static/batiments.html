@@ -28,7 +28,7 @@
         }
 
         .nav-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -41,7 +41,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-decoration: none;
+            background-clip: text;
         }
 
         .nav-links {
@@ -55,10 +55,22 @@
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: #667eea;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .container {

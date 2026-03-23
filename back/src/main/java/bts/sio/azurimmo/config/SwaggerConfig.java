@@ -19,7 +19,6 @@ public class SwaggerConfig {
                         .version("v1.0.1")
                         .contact(new Contact()
                                 .name("Équipe Azurimmo")
-                                .email("contact@azurimmo.com")
                                 .url("https://www.azurimmo.com"))
                         .license(new License()
                                 .name("Apache 2.0")

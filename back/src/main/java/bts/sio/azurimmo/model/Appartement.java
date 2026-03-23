@@ -43,6 +43,6 @@ public class Appartement {
 	 private List<Intervention> interventions;
 	 
 	 @OneToMany(mappedBy = "appartement")
-	 private List<Contrat> contrat;
+	 private List<Contrat> contrats;
 
 }

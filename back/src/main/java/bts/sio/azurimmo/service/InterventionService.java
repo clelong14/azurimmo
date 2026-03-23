@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bts.sio.azurimmo.model.Appartement;
@@ -13,17 +12,17 @@ import bts.sio.azurimmo.model.dto.InterventionDTO;
 import bts.sio.azurimmo.model.mapper.InterventionMapper;
 import bts.sio.azurimmo.repository.AppartementRepository;
 import bts.sio.azurimmo.repository.InterventionRepository;
-import lombok.Data;
 
-@Data
 @Service
 public class InterventionService {
 	
-	@Autowired 
-    private InterventionRepository interventionRepository;
-	
-	@Autowired
-    private AppartementRepository appartementRepository;
+	private final InterventionRepository interventionRepository;
+	private final AppartementRepository appartementRepository;
+
+	public InterventionService(InterventionRepository interventionRepository, AppartementRepository appartementRepository) {
+		this.interventionRepository = interventionRepository;
+		this.appartementRepository = appartementRepository;
+	}
 	
 	public Intervention saveIntervention(Intervention intervention) {
 		Intervention savedIntervention = interventionRepository.save(intervention);

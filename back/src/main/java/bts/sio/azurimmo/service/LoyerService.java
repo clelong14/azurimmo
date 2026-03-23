@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bts.sio.azurimmo.model.Contrat;
@@ -13,17 +12,17 @@ import bts.sio.azurimmo.model.dto.LoyerDTO;
 import bts.sio.azurimmo.model.mapper.LoyerMapper;
 import bts.sio.azurimmo.repository.ContratRepository;
 import bts.sio.azurimmo.repository.LoyerRepository;
-import lombok.Data;
 
-@Data
 @Service
 public class LoyerService {
 	
-	@Autowired 
-    private LoyerRepository loyerRepository;
-	
-	@Autowired
-    private ContratRepository contratRepository;
+	private final LoyerRepository loyerRepository;
+	private final ContratRepository contratRepository;
+
+	public LoyerService(LoyerRepository loyerRepository, ContratRepository contratRepository) {
+		this.loyerRepository = loyerRepository;
+		this.contratRepository = contratRepository;
+	}
 	
 	public Loyer saveLoyer(Loyer loyer) {
 		Loyer savedLoyer = loyerRepository.save(loyer);

@@ -4,20 +4,20 @@ import bts.sio.azurimmo.model.Role;
 import bts.sio.azurimmo.model.dto.RoleDTO;
 import bts.sio.azurimmo.model.mapper.RoleMapper;
 import bts.sio.azurimmo.repository.RoleRepository;
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Data
 @Service
 public class RoleService {
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
+
+    public RoleService(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
     // Récupérer tous les rôles
     public List<RoleDTO> getAllRolesDTO() {

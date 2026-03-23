@@ -4,7 +4,6 @@ import bts.sio.azurimmo.model.dto.RoleDTO;
 import bts.sio.azurimmo.service.RoleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +14,11 @@ import java.util.List;
 @Tag(name = "Roles", description = "Gestion des rôles")
 public class RoleController {
 
-    @Autowired
-    private RoleService roleService;
+    private final RoleService roleService;
+
+    public RoleController(RoleService roleService) {
+        this.roleService = roleService;
+    }
 
     @GetMapping("/all")
     @Operation(summary = "Récupère tous les rôles")

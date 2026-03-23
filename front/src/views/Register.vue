@@ -3,12 +3,7 @@
 
     <div class="login-left">
       <div class="login-brand">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <rect x="2" y="2" width="9" height="9" rx="2" fill="#2563eb"/>
-          <rect x="13" y="2" width="9" height="9" rx="2" fill="#2563eb" opacity=".4"/>
-          <rect x="2" y="13" width="9" height="9" rx="2" fill="#2563eb" opacity=".4"/>
-          <rect x="13" y="13" width="9" height="9" rx="2" fill="#2563eb" opacity=".7"/>
-        </svg>
+        <img src="/azurimmo_logo.png" alt="Azurimmo Logo" class="logo-img" />
         <span>Azurimmo</span>
       </div>
 
@@ -204,7 +199,7 @@ const submit = async () => {
     }
 
     success.value = true
-    setTimeout(() => router.push('/login'), 2000)
+    setTimeout(() => router.push('/accueil'), 2000)
 
   } catch (e) {
     error.value = e.message
@@ -220,6 +215,12 @@ const submit = async () => {
 .req { color: var(--red); margin-left: 2px; }
 .field-error { font-size: 0.75rem; color: var(--red); margin-top: 0.25rem; }
 .input-wrap.error { border-color: var(--red); }
+
+.logo-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
 
 .pwd-strength { display: flex; flex-direction: column; gap: 0.35rem; }
 .pwd-strength-label { font-size: 0.77rem; color: var(--text-muted); }

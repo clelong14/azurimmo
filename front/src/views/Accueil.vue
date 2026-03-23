@@ -3,7 +3,7 @@
 
     <div class="welcome-banner fade-in">
       <div class="welcome-text">
-        <h1 class="welcome-title">Bienvenue sur Azurimmo 👋</h1>
+        <h1 class="welcome-title">Bienvenue sur Azurimmo !</h1>
         <p class="welcome-desc">
           Cette application vous permet de gérer votre patrimoine immobilier : bâtiments, appartements, contrats de location, locataires et interventions.
           Utilisez le menu à gauche pour naviguer entre les sections.

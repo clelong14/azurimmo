@@ -28,6 +28,6 @@ public class Batiment {
 	 private String ville;
 	 
 	 @OneToMany(mappedBy = "batiment")
-	 private List<Appartement> appartement;
+	 private List<Appartement> appartements;
 
 }

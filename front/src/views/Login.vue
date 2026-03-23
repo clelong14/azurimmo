@@ -3,12 +3,7 @@
 
     <div class="login-left">
       <div class="login-brand">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <rect x="2" y="2" width="9" height="9" rx="2" fill="#2563eb"/>
-          <rect x="13" y="2" width="9" height="9" rx="2" fill="#2563eb" opacity=".4"/>
-          <rect x="2" y="13" width="9" height="9" rx="2" fill="#2563eb" opacity=".4"/>
-          <rect x="13" y="13" width="9" height="9" rx="2" fill="#2563eb" opacity=".7"/>
-        </svg>
+        <img src="/azurimmo_logo.png" alt="Azurimmo Logo" class="logo-img" />
         <span>Azurimmo</span>
       </div>
 
@@ -125,8 +120,13 @@ const submit = async () => {
   error.value = ''
   loading.value = true
   try {
-    await login(form.value.adresseMail, form.value.motDePasse)
-    router.push('/')
+    const user = await login(form.value.adresseMail, form.value.motDePasse)
+    // Rediriger selon le rôle
+    if (user?.roleLibelle === 'USER') {
+      router.push('/accueil')
+    } else {
+      router.push('/tableau-de-bord')
+    }
   } catch (e) {
     error.value = e.message
   } finally {
@@ -137,4 +137,10 @@ const submit = async () => {
 
 <style scoped>
 @import '@/assets/login.css';
+
+.logo-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
 </style>

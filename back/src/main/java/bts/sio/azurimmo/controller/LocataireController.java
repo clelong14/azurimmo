@@ -2,7 +2,6 @@ package bts.sio.azurimmo.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +21,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Tag(name = "Locataires", description = "Gestion des locataires")
 public class LocataireController {
 	
-	@Autowired
-    private LocataireService locataireService;
+	private final LocataireService locataireService;
+
+	public LocataireController(LocataireService locataireService) {
+		this.locataireService = locataireService;
+	}
 	
 	@PostMapping
     @Operation(summary = "Création de Locataires")

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bts.sio.azurimmo.model.Appartement;
@@ -12,18 +11,18 @@ import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.model.dto.AppartementDTO;
 import bts.sio.azurimmo.model.mapper.AppartementMapper;
 import bts.sio.azurimmo.repository.AppartementRepository;
-import bts.sio.azurimmo.repository.BatimentRepository;  // ← AJOUT
-import lombok.Data; 
+import bts.sio.azurimmo.repository.BatimentRepository;
 
-@Data 
 @Service
 public class AppartementService {
 	
-    @Autowired 
-    private AppartementRepository appartementRepository;
-    
-    @Autowired
-    private BatimentRepository batimentRepository;
+    private final AppartementRepository appartementRepository;
+    private final BatimentRepository batimentRepository;
+
+    public AppartementService(AppartementRepository appartementRepository, BatimentRepository batimentRepository) {
+        this.appartementRepository = appartementRepository;
+        this.batimentRepository = batimentRepository;
+    }
 
     public Appartement saveAppartement(Appartement appartement) {
         Appartement savedAppartement = appartementRepository.save(appartement);

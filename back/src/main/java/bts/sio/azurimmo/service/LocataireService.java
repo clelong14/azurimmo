@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bts.sio.azurimmo.model.Locataire;
@@ -12,17 +11,17 @@ import bts.sio.azurimmo.model.dto.LocataireDTO;
 import bts.sio.azurimmo.model.mapper.LocataireMapper;
 import bts.sio.azurimmo.repository.ContratRepository;
 import bts.sio.azurimmo.repository.LocataireRepository;
-import lombok.Data;
 
-@Data
 @Service
 public class LocataireService {
     
-    @Autowired 
-    private LocataireRepository locataireRepository;
-    
-    @Autowired
-    private ContratRepository contratRepository;
+    private final LocataireRepository locataireRepository;
+    private final ContratRepository contratRepository;
+
+    public LocataireService(LocataireRepository locataireRepository, ContratRepository contratRepository) {
+        this.locataireRepository = locataireRepository;
+        this.contratRepository = contratRepository;
+    }
     
     public Locataire saveLocataire(Locataire locataire) {
         Locataire savedLocataire = locataireRepository.save(locataire);
