@@ -25,7 +25,7 @@ public class LocataireController {
 	@Autowired
     private LocataireService locataireService;
 	
-	@PostMapping("/")
+	@PostMapping
     @Operation(summary = "Création de Locataires")
 	 public ResponseEntity<LocataireDTO> createLocataire(@RequestBody LocataireDTO dto) {
 		LocataireDTO savedDTO = locataireService.saveLocataireDTO(dto);

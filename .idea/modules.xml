@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/azurimmo.iml" filepath="$PROJECT_DIR$/azurimmo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back/azurimmo.iml" filepath="$PROJECT_DIR$/back/azurimmo.iml" />
     </modules>
   </component>
 </project>

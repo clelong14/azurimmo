@@ -27,7 +27,7 @@ public class BatimentController {
 		this.batimentService = batimentService;
 	}
 	
-	@PostMapping("/")
+	@PostMapping
 	@Operation(summary = "Création de bâtiments")
 	 public ResponseEntity<BatimentDTO> createBatiment(@RequestBody BatimentDTO dto) {
 	 BatimentDTO savedDTO = batimentService.saveBatimentDTO(dto);
@@ -39,11 +39,6 @@ public class BatimentController {
     public List<Batiment> findByVille(@PathVariable String ville) {
         return batimentService.findByVille(ville);
     }
-	
-	/*@GetMapping("/{batimentId}")
-	 public Optional <BatimentDTO> getBatimentDTO(@PathVariable long batimentId) {
-	 return batimentService.getBatimentDTO(batimentId);
-	 }*/
 	
 	@GetMapping("/{batimentId}")
 	@Operation(summary = "Récupère un bâtiment par son ID")

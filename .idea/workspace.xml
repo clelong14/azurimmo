@@ -4,12 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="feat: add API configuration and implement building management view">
+    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="feat: ajout de Batiments.vue pour le management d'appartements en fonction des bâtiments">
+      <change afterPath="$PROJECT_DIR$/front/src/composables/useApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3a33109b-7200-4519-a3bb-8bf6fb27be86.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3a33109b-7200-4519-a3bb-8bf6fb27be86.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/AppartementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/AppartementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/BatimentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/BatimentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/ContratController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/ContratController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/InterventionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/InterventionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/LocataireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/LocataireController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/LoyerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/LoyerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/dto/AppartementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/dto/AppartementDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/appartements.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/appartements.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/batiments.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/batiments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/contrats.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/contrats.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/interventions.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/interventions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/locataires.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/locataires.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/.env" beforeDir="false" afterPath="$PROJECT_DIR$/front/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/front/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/public/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/service/api.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/views/Accueil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Accueil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/Batiments.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Batiments.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +48,9 @@
     <persistenceIdMap>
       <entry key="_E:/SIO2/IdeaProjects/azurimmo" value="39Knh7k8i5UV9CrleWNukCrI9kt" />
     </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedChatMode">
+    <option name="chatModeId" value="Agent" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -65,46 +93,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.AzurimmoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.azurimmo [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.azurimmo [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.azurimmo [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.azurimmo [verify].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AzurimmoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;front&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/SIO2/IdeaProjects/azurimmo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.AzurimmoApplication.executor": "Run",
+    "Maven.azurimmo [clean].executor": "Run",
+    "Maven.azurimmo [install].executor": "Run",
+    "Maven.azurimmo [package].executor": "Run",
+    "Maven.azurimmo [verify].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.AzurimmoApplication.executor": "Run",
+    "git-widget-placeholder": "front",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/SIO2/IdeaProjects/azurimmo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.chat.ChatConfigurable",
+    "ts.external.directory.path": "D:\\IntelliJ IDEA 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src\components" />
       <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src\assets" />
       <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src" />
       <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src\assets\styles" />
@@ -112,6 +144,10 @@
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="bts.sio.azurimmo.config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bts.sio.azurimmo.model.mapper" />
+      <recent name="bts.sio.azurimmo.repository" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AzurimmoApplication">
@@ -145,8 +181,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
       </set>
     </attachedChunks>
   </component>
@@ -167,7 +203,10 @@
       <workItem from="1772464114587" duration="1102000" />
       <workItem from="1772465245228" duration="1888000" />
       <workItem from="1773045990760" duration="225000" />
-      <workItem from="1773070036408" duration="1238000" />
+      <workItem from="1773070036408" duration="1409000" />
+      <workItem from="1774255838790" duration="678000" />
+      <workItem from="1774256983524" duration="2163000" />
+      <workItem from="1774259667903" duration="6980000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: README file moved">
       <option name="closed" value="true" />
@@ -193,7 +232,23 @@
       <option name="project" value="LOCAL" />
       <updated>1772467121623</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: amélioration de la vue Accueil et Bâtiments avec des statistiques et une mise en page améliorée">
+      <option name="closed" value="true" />
+      <created>1773071346196</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1773071346196</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: ajout de Batiments.vue pour le management d'appartements en fonction des bâtiments">
+      <option name="closed" value="true" />
+      <created>1774256432951</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1774256432951</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +258,13 @@
     <MESSAGE value="refactor: README file moved" />
     <MESSAGE value="refactor: update API endpoints and improve frontend structure" />
     <MESSAGE value="feat: add API configuration and implement building management view" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add API configuration and implement building management view" />
+    <MESSAGE value="feat: amélioration de la vue Accueil et Bâtiments avec des statistiques et une mise en page améliorée" />
+    <MESSAGE value="feat: ajout de Batiments.vue pour le management d'appartements en fonction des bâtiments" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: ajout de Batiments.vue pour le management d'appartements en fonction des bâtiments" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

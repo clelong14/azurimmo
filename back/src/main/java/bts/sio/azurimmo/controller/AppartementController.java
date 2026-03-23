@@ -21,7 +21,7 @@ public class AppartementController {
    @Autowired
     private AppartementService appartementService;
     
-    @PostMapping("/")
+    @PostMapping
     @Operation(summary = "Création d'appartements")
 	 public ResponseEntity<AppartementDTO> createAppartement(@RequestBody AppartementDTO dto) {
     AppartementDTO savedDTO = appartementService.saveAppartementDTO(dto);

@@ -25,7 +25,7 @@ public class LoyerController {
 	@Autowired
     private LoyerService loyerService;
 	
-	@PostMapping("/")
+	@PostMapping
     @Operation(summary = "Création de loyers")
 	 public ResponseEntity<LoyerDTO> createLoyer(@RequestBody LoyerDTO dto) {
 		LoyerDTO savedDTO = loyerService.saveLoyerDTO(dto);

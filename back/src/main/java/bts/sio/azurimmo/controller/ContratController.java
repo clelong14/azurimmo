@@ -26,7 +26,7 @@ public class ContratController {
 	@Autowired
     private ContratService contratService;
 	
-	@PostMapping("/")
+	@PostMapping
     @Operation(summary = "Création de contrats")
 	 public ResponseEntity<ContratDTO> createContrat(@RequestBody ContratDTO dto) {
 		ContratDTO savedDTO = contratService.saveContratDTO(dto);

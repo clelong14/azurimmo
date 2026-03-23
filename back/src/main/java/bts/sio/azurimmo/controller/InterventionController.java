@@ -25,7 +25,7 @@ public class InterventionController {
 	@Autowired
     private InterventionService interventionService;
 	
-	@PostMapping("/")
+	@PostMapping
     @Operation(summary = "Création d'interventions")
 	 public ResponseEntity<InterventionDTO> createIntervention(@RequestBody InterventionDTO dto) {
 		InterventionDTO savedDTO = interventionService.saveInterventionDTO(dto);

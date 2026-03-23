@@ -1,355 +1,71 @@
-/* ==========================================================================
-   1. VARIABLES & RESET
-   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
-    --primary: #38bdf8;
-    --primary-dark: #0ea5e9;
-    --bg-main: #f8fafc;
-    --nav-bg: rgba(15, 23, 42, 0.9);
-    --text-dark: #1e293b;
-    --text-muted: #64748b;
-    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --bg-card: #ffffff;
+    --bg-nav: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-bg: #eff6ff;
+    --accent-border: #bfdbfe;
+    --border: #e5e7eb;
+    --border-strong: #d1d5db;
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+    --radius: 8px;
+    --radius-lg: 10px;
+    --nav-height: 58px;
+    --green: #16a34a; --green-bg: #f0fdf4; --green-border: #bbf7d0;
+    --red: #dc2626; --red-bg: #fef2f2; --red-border: #fecaca;
+    --amber: #d97706; --amber-bg: #fffbeb; --amber-border: #fde68a;
 }
 
+[data-theme="dark"] {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #1c2128;
+    --bg-card: #161b22;
+    --bg-nav: #0d1117;
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --text-muted: #6e7681;
+    --accent: #58a6ff;
+    --accent-hover: #79b8ff;
+    --accent-bg: #0d2136;
+    --accent-border: #1f6feb;
+    --border: #30363d;
+    --border-strong: #484f58;
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.4);
+    --green: #3fb950; --green-bg: #0a1f0f; --green-border: #1a4d25;
+    --red: #f85149; --red-bg: #1f0c0c; --red-border: #6e1616;
+    --amber: #d29922; --amber-bg: #1f1506; --amber-border: #6e4500;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
 body {
-    margin: 0;
-    background-color: var(--bg-main);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    color: var(--text-dark);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    transition: background 0.2s, color 0.2s;
 }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, select, textarea { font-family: inherit; }
 
-#app-layout {
-    min-height: 100vh;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 6px; }
 
-/* ==========================================================================
-   2. NAVIGATION FLOTTANTE
-   ========================================================================== */
-.main-nav {
-    background-color: var(--nav-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 0.5rem 1.5rem;
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    position: sticky;
-    top: 20px;
-    z-index: 1000;
-    width: fit-content;
-    margin: 0 auto;
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-}
-
-.nav-link {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    padding: 8px 20px;
-    border-radius: 25px;
-    transition: var(--transition);
-}
-
-.nav-link:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.router-link-active {
-    color: white !important;
-    background-color: var(--primary) !important;
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
-}
-
-/* ==========================================================================
-   3. COMPOSANTS UI (Hero, Boutons, Badges)
-   ========================================================================== */
-.hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: white;
-    padding: 4rem 3rem;
-    border-radius: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem auto;
-    max-width: 1100px;
-}
-
-.hero h1 { font-size: 2.8rem; font-weight: 800; margin: 0; letter-spacing: -1px; }
-.hero h1 span { color: var(--primary); }
-.hero p { opacity: 0.8; font-size: 1.1rem; margin-top: 10px; }
-
-button, .btn-primary, .btn-outline {
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: #0f172a;
-}
-
-.btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-}
-
-.btn-outline:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: white;
-}
-
-.badge {
-    display: inline-block;
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 4px 12px;
-    border-radius: 10px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-/* ==========================================================================
-   4. STRUCTURES DE PAGE (Grilles, Sections)
-   ========================================================================== */
-.main-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    border: 1px solid #f1f5f9;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid #f1f5f9;
-}
-
-.section-header h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin: 0;
-}
-
-.section-header .link {
-    color: var(--primary-dark);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.section-header .link:hover {
-    transform: translateX(5px);
-}
-
-/* Stats */
-.stats-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem auto;
-    max-width: 1100px;
-}
-
-.stat-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 20px;
-    border: 1px solid #f1f5f9;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    box-shadow: var(--card-shadow);
-}
-
-.stat-icon { font-size: 2rem; background: #f0f9ff; padding: 10px; border-radius: 12px; }
-.stat-value { display: block; font-size: 1.8rem; font-weight: 800; color: var(--text-dark); }
-.stat-label { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
-
-/* Grilles de cartes */
-.grid, .recent-grid, .preview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.card, .building-item {
-    background: white;
-    border-radius: 20px;
-    padding: 1.5rem;
-    border: 1px solid #e2e8f0;
-    transition: var(--transition);
-    box-shadow: var(--card-shadow);
-    position: relative;
-}
-
-.card:hover, .building-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem 0;
-}
-
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 1.5rem;
-    border: 1px solid #f1f5f9;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary);
-}
-
-/* On ajoute une icône de ville stylisée */
-.card h3 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #1e293b;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.card h3::before {
-    content: "📍"; /* Ou une icône FontAwesome / Lucide */
-    font-size: 1.1rem;
-    opacity: 0.7;
-}
-
-.card p {
-    color: #64748b;
-    font-size: 0.95rem;
-    margin: 0;
-    font-weight: 400;
-}
-
-/* Le badge "appartements" */
-.card small {
-    margin-top: auto;
-    background: #f0f9ff;
-    color: #0369a1;
-    padding: 6px 14px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    align-self: flex-start; /* Ne prend pas toute la largeur */
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.card small::before {
-    content: "🏢";
-}
-
-/* ==========================================================================
-   5. ETATS (Loading, Empty)
-   ========================================================================== */
-.empty-state {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: #f8fafc;
-    border: 2px dashed #cbd5e1;
-    border-radius: 20px;
-    color: var(--text-muted);
-}
-
-.loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-    color: var(--primary);
-    font-weight: 600;
-    gap: 10px;
-}
-
-.loader::after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border: 3px solid #e2e8f0;
-    border-top-color: var(--primary);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Container de l'en-tête */
-.page-header {
-    padding: 3rem 0 2rem 0; /* Plus d'espace pour laisser respirer */
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-/* Le Titre AZURIMMO */
-.page-header h1 {
-    font-size: 2.5rem;
-    font-weight: 900; /* Très gras pour l'impact */
-    color: #0f172a; /* Bleu nuit presque noir */
-    letter-spacing: -1.5px; /* Resserre les lettres pour un look moderne */
-    margin: 0;
-    text-transform: uppercase;
-    position: relative;
-    display: inline-block;
-}
-
-/* Petit point bleu après le titre pour la touche design */
-.page-header h1::after {
-    content: ".";
-    color: var(--primary);
-    font-size: 3rem;
-    line-height: 0;
-}
-
-/* Le sous-titre (Gestion des X bâtiments) */
-.page-header p {
-    margin-top: 0.5rem;
-    color: #64748b;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.2s ease both; }
