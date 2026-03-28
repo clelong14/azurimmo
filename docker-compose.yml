@@ -14,7 +14,7 @@ services:
       - immo_network
 
   back-immo:
-    build:
+    build: .
     image: clelong/azur-back:1.0
     container_name: azur_back
     ports:
