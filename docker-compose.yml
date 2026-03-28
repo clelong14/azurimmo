@@ -14,8 +14,8 @@ services:
       - immo_network
 
   back-immo:
-    build: .
-    image: clelong/azur-back:1.0
+    build:
+      context: ./back  # Portainer ira dans le dossier /back chercher le Dockerfile
     container_name: azur_back
     ports:
       - "8081:8080"
@@ -25,7 +25,17 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db-immo:5432/azurimmo
       SPRING_DATASOURCE_USERNAME: co_lelong
       SPRING_DATASOURCE_PASSWORD: Clelong@Post.2026
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - immo_network
+
+  front-immo:
+    build:
+      context: ./front # Portainer ira dans le dossier /front
+    container_name: azur_front
+    ports:
+      - "8082:80"
+    depends_on:
+      - back-immo
     networks:
       - immo_network
 
