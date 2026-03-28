@@ -1,12 +1,10 @@
-# 1. On part d'une image Java légère
+# Change la version 17 par 21 ici
 FROM eclipse-temurin:21-jdk-alpine
 
-# 2. On crée un dossier pour l'application
 WORKDIR /app
 
-# 3. On copie le fichier .jar généré par Maven ou Gradle
-# (Vérifie le nom du fichier dans ton dossier /target)
+# On copie le jar (celui que tu as compilé en Java 21)
 COPY target/*.jar app.jar
 
-# 4. On lance l'application
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
