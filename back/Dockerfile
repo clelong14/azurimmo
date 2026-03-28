@@ -1,5 +1,5 @@
 # 1. On part d'une image Java légère
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:21-jdk-alpine
 
 # 2. On crée un dossier pour l'application
 WORKDIR /app
