@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le : mer. 17 déc. 2025 à 09:59
+-- Généré le : lun. 30 mars 2026 à 07:30
 -- Version du serveur : 11.5.2-MariaDB
 -- Version de PHP : 8.3.14
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `appartement` (
   `batiment_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK5kn64l7l2m25kkryy4n50ikyb` (`batiment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `appartement`
@@ -52,7 +52,8 @@ INSERT INTO `appartement` (`id`, `description`, `nb_pieces`, `numero`, `surface`
 (6, 'Studio étudiant', 1, 301, 38, 3),
 (7, 'T4 familial avec cave', 4, 302, 95, 3),
 (8, 'T2 moderne', 2, 401, 55.5, 4),
-(9, 'T5 de standing', 5, 501, 120, 5);
+(9, 'T5 de standing', 5, 501, 120, 5),
+(10, 'Vue sur mer, 3ème étage', 2, 69, 70, 6);
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `batiment` (
   `adresse` varchar(255) DEFAULT NULL,
   `ville` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `batiment`
@@ -77,7 +78,8 @@ INSERT INTO `batiment` (`id`, `adresse`, `ville`) VALUES
 (2, '28 Avenue des Champs', 'Lyon'),
 (3, '42 Boulevard Victor Hugo', 'Marseille'),
 (4, '7 Rue du Commerce', 'Toulouse'),
-(5, '33 Avenue de la République', 'Nice');
+(5, '33 Avenue de la République', 'Nice'),
+(6, '13 Rue des colimaçons', 'Cherbourg');
 
 -- --------------------------------------------------------
 
@@ -227,6 +229,52 @@ INSERT INTO `loyer` (`id`, `date_paiement`, `montant_paye`, `contrat_id`) VALUES
 (21, '2023-10-05 00:00:00.000000', 2400, 9),
 (22, '2023-11-05 00:00:00.000000', 2400, 9);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Déchargement des données de la table `role`
+--
+
+INSERT INTO `role` (`id`, `libelle`) VALUES
+(1, 'ADMIN'),
+(2, 'USER'),
+(3, 'GESTIONNAIRE');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `adresse_mail` varchar(150) NOT NULL,
+  `mot_de_passe` varchar(100) NOT NULL,
+  `role_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKn82ha3ccdebhokx3a8fgdqeyy` (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `adresse_mail`, `mot_de_passe`, `role_id`) VALUES
+(3, 'colynne@azurimmo.fr', '$2a$10$sAqZ92.VTC5pEd3UJRS3tuO7otsz7SzOcKNKUMjJDwRxP/VCKQxu.', 1),
+(4, 'bwabwa@gmail.com', '$2a$10$5cB8R.4zSEp4d/corWYlOOS5gK10.ez5BurPlulRpyQpPqSb9ACZm', 2);
+
 --
 -- Contraintes pour les tables déchargées
 --
@@ -255,6 +303,12 @@ ALTER TABLE `intervention`
 --
 ALTER TABLE `loyer`
   ADD CONSTRAINT `FKonui4jewf3vd1plwsrj93ryvp` FOREIGN KEY (`contrat_id`) REFERENCES `contrat` (`id`);
+
+--
+-- Contraintes pour la table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `FKn82ha3ccdebhokx3a8fgdqeyy` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -41,3 +41,7 @@ __screenshots__/
 .env
 .env.local
 .env.production
+
+
+Dockerfile
+docker-compose.yml

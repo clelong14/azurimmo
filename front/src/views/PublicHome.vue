@@ -16,7 +16,7 @@
             <component :is="isDark ? IconSun : IconMoon" />
           </button>
           <!-- User Avatar Menu -->
-          <div class="user-menu">
+          <div v-if="isAuthenticated" class="user-menu">
             <button class="avatar-btn" @click="showUserMenu = !showUserMenu" :title="user?.adresseMail">
               <div class="avatar">{{ user?.adresseMail?.[0]?.toUpperCase() }}</div>
             </button>
@@ -38,6 +38,7 @@
               </button>
             </div>
           </div>
+          <router-link v-else to="/login" class="login-btn">Se connecter</router-link>
         </div>
       </div>
     </header>
@@ -59,7 +60,7 @@
           <div class="cta-content">
             <h2>Prêt à gérer vos bâtiments?</h2>
             <p>Inscrivez-vous maintenant et commencez à gérer votre patrimoine immobilier</p>
-            <router-link to="/register" class="cta-button">
+            <router-link to="/login" class="cta-button">
               S'inscrire pour Azurimmo
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="20 6 9 17 4 12"/>
@@ -112,7 +113,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 import { useAuth } from '@/composables/useAuth'
@@ -120,12 +121,12 @@ import { IconSun, IconMoon } from '@/components/Icons.js'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
-const { user, logout } = useAuth()
+const { user, isAuthenticated, logout } = useAuth()
 const showUserMenu = ref(false)
 
 const handleLogout = () => {
   logout()
-  router.push('/login')
+  router.push('/accueil')
 }
 
 // Fermer le menu quand on clique ailleurs
@@ -209,6 +210,25 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.login-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .theme-btn {

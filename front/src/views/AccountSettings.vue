@@ -136,7 +136,7 @@ const isDeleting = ref(false)
 
 const handleLogout = () => {
   logout()
-  router.push('/login')
+  router.push('/accueil')
 }
 
 const openDeleteConfirmation = () => {
@@ -177,7 +177,7 @@ const confirmDeleteAccount = async () => {
 
     // Attendre un peu pour que le logout soit traité
     setTimeout(() => {
-      router.push('/login')
+      router.push('/accueil')
     }, 500)
 
   } catch (error) {

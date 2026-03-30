@@ -207,7 +207,7 @@ const errorMessage = ref('')
 
 const handleLogout = () => {
   logout()
-  router.push('/login')
+  router.push('/accueil')
 }
 
 const submitForm = async () => {

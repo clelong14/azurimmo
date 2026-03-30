@@ -33,6 +33,7 @@ export const appartementApi = {
 export const contratApi = {
     getAll: () => api.get('/contrats/all'),
     create: (data) => api.post('/contrats', data),
+    update: (id, data) => api.put(`/contrats/${id}`, data),
 }
 export const locataireApi = {
     getAll: () => api.get('/locataires/all'),

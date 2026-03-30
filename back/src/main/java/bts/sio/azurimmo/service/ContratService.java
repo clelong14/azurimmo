@@ -56,4 +56,21 @@ public class ContratService {
         return ContratMapper.toDTO(saved);
     }
 
+	public Optional<ContratDTO> updateContratDTO(Long id, ContratDTO dto) {
+		return contratRepository.findById(id).map(existing -> {
+			existing.setDateDebut(dto.getDateDebut());
+			existing.setDateFin(dto.getDateFin());
+			existing.setMontantBrut(dto.getMontantBrut());
+			existing.setMontantCharges(dto.getMontantCharges());
+
+			if (dto.getAppartement() != null) {
+				Optional<Appartement> appartement = appartementRepository.findById(dto.getAppartement());
+				appartement.ifPresent(existing::setAppartement);
+			}
+
+			Contrat saved = contratRepository.save(existing);
+			return ContratMapper.toDTO(saved);
+		});
+	}
+
 }

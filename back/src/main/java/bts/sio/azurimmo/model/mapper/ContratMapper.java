@@ -8,6 +8,7 @@ public class ContratMapper {
 	public static ContratDTO toDTO(Contrat c) {
         if (c == null) return null;
         ContratDTO dto = new ContratDTO();
+        dto.setId(c.getId());
         dto.setDateDebut(c.getDateDebut());
         dto.setDateFin(c.getDateFin());
         dto.setMontantBrut(c.getMontantBrut());
@@ -22,6 +23,7 @@ public class ContratMapper {
     public static Contrat toEntity(ContratDTO dto) {
         if (dto == null) return null;
         Contrat c = new Contrat();
+        c.setId(dto.getId());
         c.setDateDebut(dto.getDateDebut());
         c.setDateFin(dto.getDateFin());
         c.setMontantBrut(dto.getMontantBrut());

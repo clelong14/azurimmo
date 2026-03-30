@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +34,14 @@ public class ContratController {
 	 public ResponseEntity<ContratDTO> createContrat(@RequestBody ContratDTO dto) {
 		ContratDTO savedDTO = contratService.saveContratDTO(dto);
 	 return ResponseEntity.status(201).body(savedDTO); // 201 Created
+	}
+
+	@PutMapping("/{contratId}")
+	@Operation(summary = "Modification d'un contrat")
+	public ResponseEntity<ContratDTO> updateContrat(@PathVariable Long contratId, @RequestBody ContratDTO dto) {
+		return contratService.updateContratDTO(contratId, dto)
+				.map(ResponseEntity::ok)
+				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping({"/appartement/{appartementId}", "/contrat/{appartementId}"})

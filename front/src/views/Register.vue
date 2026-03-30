@@ -199,7 +199,7 @@ const submit = async () => {
     }
 
     success.value = true
-    setTimeout(() => router.push('/accueil'), 2000)
+    setTimeout(() => router.push('/login'), 2000)
 
   } catch (e) {
     error.value = e.message
@@ -212,38 +212,5 @@ const submit = async () => {
 <style scoped>
 @import '@/assets/login.css';
 
-.req { color: var(--red); margin-left: 2px; }
-.field-error { font-size: 0.75rem; color: var(--red); margin-top: 0.25rem; }
-.input-wrap.error { border-color: var(--red); }
 
-.logo-img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-.pwd-strength { display: flex; flex-direction: column; gap: 0.35rem; }
-.pwd-strength-label { font-size: 0.77rem; color: var(--text-muted); }
-.strength-weak   { color: var(--red);    font-weight: 600; }
-.strength-medium { color: var(--amber);  font-weight: 600; }
-.strength-good   { color: var(--accent); font-weight: 600; }
-.strength-strong { color: var(--green);  font-weight: 600; }
-
-.pwd-strength-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
-.pwd-strength-fill { height: 100%; border-radius: 2px; transition: width 0.3s ease, background 0.3s ease; }
-.fill-weak   { background: var(--red);    }
-.fill-medium { background: var(--amber);  }
-.fill-good   { background: var(--accent); }
-.fill-strong { background: var(--green);  }
-
-.success-msg {
-  display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.6rem 0.85rem;
-  background: var(--green-bg); border: 1px solid var(--green-border);
-  border-radius: var(--radius); font-size: 0.82rem; color: var(--green);
-}
-
-.login-footer { text-align: center; font-size: 0.82rem; color: var(--text-muted); margin-top: 1.25rem; }
-.login-link { color: var(--accent); font-weight: 500; margin-left: 0.3rem; }
-.login-link:hover { text-decoration: underline; }
 </style>

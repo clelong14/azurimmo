@@ -6,7 +6,7 @@
   <div v-else-if="isPublicTopbarRoute" class="public-layout">
     <header class="public-topbar">
       <div class="public-topbar-content">
-        <router-link :to="homeRoute" class="public-brand">
+        <router-link to="/accueil" class="public-brand">
           <img src="/azurimmo_logo.png" alt="Azurimmo Logo" class="public-logo" />
           <span>Azurimmo</span>
         </router-link>
@@ -73,7 +73,7 @@
   <div v-else class="app-shell" :class="{ 'sidebar-open': sidebarOpen }">
 
     <aside class="sidebar">
-      <router-link :to="homeRoute" class="sidebar-logo">
+      <router-link to="/accueil" class="sidebar-logo">
         <img src="/azurimmo_logo.png" alt="Azurimmo Logo" class="logo-img" />
         <span class="logo-text">Azurimmo</span>
       </router-link>
@@ -243,9 +243,6 @@ const passwordDraft = ref({ newPassword: '', confirmPassword: '' })
 const route = useRoute()
 const router = useRouter()
 const BASE = import.meta.env.VITE_API_URL
-const homeRoute = computed(() =>
-  user.value?.roleLibelle === 'USER' ? '/accueil' : '/tableau-de-bord'
-)
 
 const profileStorageKey = computed(() => {
   const idPart = user.value?.id ? `id-${user.value.id}` : user.value?.adresseMail || 'guest'
@@ -311,7 +308,7 @@ const handleLogout = () => {
   logout()
   showPublicMenu.value = false
   showDashboardProfileModal.value = false
-  router.push('/login')
+  router.push('/accueil')
 }
 
 const openDashboardProfileModal = () => {
@@ -413,13 +410,10 @@ const navLinks = [
 ]
 
 const dashboardTopLinks = computed(() => {
-  const links = [{ to: '/tableau-de-bord', label: 'Tableau de bord' }]
-
-  if (isAdmin.value) {
-    links.unshift({ to: '/accueil', label: 'Accueil' })
-  }
-
-  return links
+  return [
+    { to: '/accueil', label: 'Accueil' },
+    { to: '/tableau-de-bord', label: 'Tableau de bord' },
+  ]
 })
 
 const allLabels = [

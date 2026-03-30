@@ -199,7 +199,7 @@ const showUserMenu = ref(false)
 
 const handleLogout = () => {
   logout()
-  router.push('/login')
+  router.push('/accueil')
 }
 
 // Fermer le menu quand on clique ailleurs

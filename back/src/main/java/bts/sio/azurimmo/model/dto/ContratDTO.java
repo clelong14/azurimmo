@@ -9,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ContratDTO {
+	private Long id;
 	private Date dateDebut;
 	private Date dateFin;
 	private Double montantBrut;

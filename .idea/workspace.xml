@@ -4,42 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="feat: ajouter la gestion des utilisateurs et des rôles avec les DTO, les référentiels et les services">
+    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="refactor: renommer les champs de collection pour la cohérence dans les modèles et modification du style du tableau de bord">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/AppartementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/AppartementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/ContratController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/ContratController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/InterventionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/InterventionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/LocataireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/LocataireController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/LoyerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/LoyerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/Appartement.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/Appartement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/Batiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/Contrat.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/Contrat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/mapper/BatimentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/mapper/BatimentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/AppartementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/AppartementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/dto/ContratDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/dto/ContratDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/mapper/ContratMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/mapper/ContratMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/ContratService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/ContratService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/InterventionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/InterventionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/LocataireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/LocataireService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/LoyerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/LoyerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/appartements.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/appartements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/batiments.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/batiments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/contrats.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/contrats.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/interventions.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/interventions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/static/locataires.html" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/static/locataires.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/front/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/assets/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/AppField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/AppField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/composables/useApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/composables/useApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Accueil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Accueil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/AccountSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/AccountSettings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/Appartements.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Appartements.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/Batiments.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Batiments.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/ContactPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/ContactPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/Contrats.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Contrats.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/PrivacyPolicy.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/PrivacyPolicy.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/PublicHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/PublicHome.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/ServicesView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/ServicesView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/TermsOfUse.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/TermsOfUse.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,54 +98,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.AzurimmoApplication.executor": "Run",
-    "Maven.azurimmo [clean].executor": "Run",
-    "Maven.azurimmo [install].executor": "Run",
-    "Maven.azurimmo [package].executor": "Run",
-    "Maven.azurimmo [verify].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.AzurimmoApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/SIO2/IdeaProjects/azurimmo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.chat.ChatConfigurable",
-    "ts.external.directory.path": "D:\\IntelliJ IDEA 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.AzurimmoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.azurimmo [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.azurimmo [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.azurimmo [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.azurimmo [verify].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AzurimmoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/SIO2/IdeaProjects/azurimmo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.chat.ChatConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\SIO2\IdeaProjects\azurimmo\front" />
+      <recent name="E:\SIO2\IdeaProjects\azurimmo" />
       <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src\components" />
       <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src\assets" />
       <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src" />
-      <recent name="E:\SIO2\IdeaProjects\azurimmo\front\src\assets\styles" />
-      <recent name="E:\SIO2\IdeaProjects\azurimmo" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="bts.sio.azurimmo.config" />
@@ -219,7 +213,10 @@
       <workItem from="1774255838790" duration="678000" />
       <workItem from="1774256983524" duration="2163000" />
       <workItem from="1774259667903" duration="6980000" />
-      <workItem from="1774271003347" duration="9117000" />
+      <workItem from="1774271003347" duration="9414000" />
+      <workItem from="1774365081402" duration="1923000" />
+      <workItem from="1774598631578" duration="740000" />
+      <workItem from="1774855146786" duration="4086000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: README file moved">
       <option name="closed" value="true" />
@@ -261,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774256432951</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor: renommer les champs de collection pour la cohérence dans les modèles et modification du style du tableau de bord">
+      <option name="closed" value="true" />
+      <created>1774281130218</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1774281130218</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +278,8 @@
     <MESSAGE value="feat: add API configuration and implement building management view" />
     <MESSAGE value="feat: amélioration de la vue Accueil et Bâtiments avec des statistiques et une mise en page améliorée" />
     <MESSAGE value="feat: ajout de Batiments.vue pour le management d'appartements en fonction des bâtiments" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: ajout de Batiments.vue pour le management d'appartements en fonction des bâtiments" />
+    <MESSAGE value="refactor: renommer les champs de collection pour la cohérence dans les modèles et modification du style du tableau de bord" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: renommer les champs de collection pour la cohérence dans les modèles et modification du style du tableau de bord" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -57,7 +57,7 @@
               <span class="badge badge-neutral">{{ b.appartements?.length ?? 0 }} logement{{ b.appartements?.length !== 1 ? 's' : '' }}</span>
             </td>
             <td>
-              <router-link to="/appartements" class="btn btn-ghost" style="font-size:0.78rem;padding:0.3rem 0.65rem">
+              <router-link :to="{ path: '/appartements', query: { batimentId: b.id } }" class="btn btn-ghost" style="font-size:0.78rem;padding:0.3rem 0.65rem">
                 Voir les appartements →
               </router-link>
             </td>

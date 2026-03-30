@@ -138,9 +138,4 @@ const submit = async () => {
 <style scoped>
 @import '@/assets/login.css';
 
-.logo-img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
 </style>

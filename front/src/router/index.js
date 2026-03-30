@@ -18,7 +18,7 @@ import ContactPage       from '@/views/ContactPage.vue'
 const routes = [
   { path: '/login', component: LoginView, meta: { public: true } },
   { path: '/register', component: RegisterView, meta: { public: true } },
-  { path: '/accueil', component: PublicHomeView, meta: { requiresAuth: true, isPublic: true } },
+  { path: '/accueil', component: PublicHomeView, meta: { public: true, isPublic: true } },
   { path: '/services', component: ServicesView, meta: { requiresAuth: true, isPublic: true } },
   { path: '/confidentialite', component: PrivacyPolicy, meta: { requiresAuth: true, isPublic: true } },
   { path: '/conditions', component: TermsOfUse, meta: { requiresAuth: true, isPublic: true } },
@@ -27,7 +27,7 @@ const routes = [
   { path: '/', redirect: '/accueil' },
   { path: '/tableau-de-bord', component: AccueilView, meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
   { path: '/batiments',     component: BatimentsView,     meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
-  { path: '/appartements',  component: AppartementsView,  meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
+  { path: '/appartements',  component: AppartementsView,  meta: { requiresAuth: true, requiresAdminOrGestionnaire: true, allowedRoles: ['ADMIN', 'GESTIONNAIRE'] } },
   { path: '/contrats',      component: ContratsView,      meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
   { path: '/locataires',    component: LocatairesView,    meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
   { path: '/interventions', component: InterventionsView, meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
@@ -41,11 +41,11 @@ router.beforeEach((to, _from) => {
   
   // Si pas de user et route protégée
   if (to.meta.requiresAuth && !user) {
-    return '/login'
+    return '/accueil'
   }
   
-  // Si user existe et page publique (login/register)
-  if (to.meta.public && user) {
+  // Si user existe, bloquer uniquement les pages d'authentification
+  if (user && (to.path === '/login' || to.path === '/register')) {
     if (user?.roleLibelle === 'USER') {
       return '/accueil'
     }
@@ -62,6 +62,11 @@ router.beforeEach((to, _from) => {
     return '/accueil'
   }
   
+  // Restriction explicite par rôle pour certaines routes (ex: Appartements).
+  if (to.meta.allowedRoles && !to.meta.allowedRoles.includes(user?.roleLibelle)) {
+    return '/accueil'
+  }
+
   // Redirection par défaut selon le rôle pour les routes publiques
   if (user && (to.path === '/' || to.path === '' || to.path === '/tableau-de-bord')) {
     if (user.roleLibelle === 'USER') {

@@ -144,7 +144,7 @@ const showUserMenu = ref(false)
 
 const handleLogout = () => {
   logout()
-  router.push('/login')
+  router.push('/accueil')
 }
 
 onMounted(() => {

@@ -10,6 +10,7 @@
         :value="modelValue"
         :placeholder="placeholder"
         :required="required"
+        v-bind="attrs"
         @input="$emit('update:modelValue', $event.target.value)"
     />
     <select
@@ -17,6 +18,7 @@
         class="field-input field-select"
         :value="modelValue"
         :required="required"
+        v-bind="attrs"
         @change="$emit('update:modelValue', $event.target.value)"
     >
       <option value="">{{ placeholder || 'Sélectionner…' }}</option>
@@ -29,12 +31,20 @@
         :value="modelValue"
         :placeholder="placeholder"
         :required="required"
+        v-bind="attrs"
         @input="$emit('update:modelValue', $event.target.value)"
     />
   </div>
 </template>
 
 <script setup>
+import { useAttrs } from 'vue'
+
+defineOptions({ inheritAttrs: false })
+
+// Forward native attributes (min, max, step, etc.) to the actual control.
+const attrs = useAttrs()
+
 defineProps({ label: String, type: { default: 'text' }, modelValue: [String, Number], placeholder: String, required: Boolean })
 defineEmits(['update:modelValue'])
 </script>
