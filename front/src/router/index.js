@@ -18,14 +18,23 @@ import ContactPage       from '@/views/ContactPage.vue'
 const routes = [
   { path: '/login', component: LoginView, meta: { public: true } },
   { path: '/register', component: RegisterView, meta: { public: true } },
-  { path: '/accueil', component: PublicHomeView, meta: { public: true, isPublic: true } },
-  { path: '/services', component: ServicesView, meta: { requiresAuth: true, isPublic: true } },
-  { path: '/confidentialite', component: PrivacyPolicy, meta: { requiresAuth: true, isPublic: true } },
-  { path: '/conditions', component: TermsOfUse, meta: { requiresAuth: true, isPublic: true } },
-  { path: '/contact', component: ContactPage, meta: { requiresAuth: true, isPublic: true } },
+
+  // 1. La page d'atterrissage pour les visiteurs (Non connectés)
+  { path: '/accueil', component: PublicHomeView, meta: { requiresAuth: false, isPublic: true } },
+
+  // 2. Les pages d'infos (Rendues publiques : requiresAuth à false)
+  { path: '/services', component: ServicesView, meta: { requiresAuth: false, isPublic: true } },
+  { path: '/confidentialite', component: PrivacyPolicy, meta: { requiresAuth: false, isPublic: true } },
+  { path: '/conditions', component: TermsOfUse, meta: { requiresAuth: false, isPublic: true } },
+  { path: '/contact', component: ContactPage, meta: { requiresAuth: false, isPublic: true } },
+
   { path: '/account', component: AccountSettingsView, meta: { requiresAuth: true } },
   { path: '/', redirect: '/accueil' },
+
+  // 3. Le vrai tableau de bord (Une fois connecté)
   { path: '/tableau-de-bord', component: AccueilView, meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
+
+  // 4. Les modules de gestion
   { path: '/batiments',     component: BatimentsView,     meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
   { path: '/appartements',  component: AppartementsView,  meta: { requiresAuth: true, requiresAdminOrGestionnaire: true, allowedRoles: ['ADMIN', 'GESTIONNAIRE'] } },
   { path: '/contrats',      component: ContratsView,      meta: { requiresAuth: true, requiresAdminOrGestionnaire: true } },
