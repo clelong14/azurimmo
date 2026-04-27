@@ -4,36 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="refactor: renommer les champs de collection pour la cohérence dans les modèles et modification du style du tableau de bord">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="7d4b789b-93aa-41db-a843-6f386d874340" name="Changes" comment="fix: update service links to remove redundant path segments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/ContratController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/controller/ContratController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/dto/ContratDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/dto/ContratDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/mapper/ContratMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/model/mapper/ContratMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/ContratService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/bts/sio/azurimmo/service/ContratService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/front/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/AppField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/AppField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/composables/useApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/composables/useApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/AccountSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/AccountSettings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Appartements.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Appartements.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Batiments.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Batiments.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/ContactPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/ContactPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Contrats.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Contrats.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/PrivacyPolicy.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/PrivacyPolicy.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/PublicHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/PublicHome.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/ServicesView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/ServicesView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/TermsOfUse.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/TermsOfUse.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +76,7 @@
     &quot;Application.AzurimmoApplication.executor&quot;: &quot;Run&quot;,
     &quot;Maven.azurimmo [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.azurimmo [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.azurimmo [org.apache.maven.plugins:maven-jar-plugin:3.4.2:jar].executor&quot;: &quot;Run&quot;,
     &quot;Maven.azurimmo [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.azurimmo [verify].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
@@ -217,6 +190,10 @@
       <workItem from="1774365081402" duration="1923000" />
       <workItem from="1774598631578" duration="740000" />
       <workItem from="1774855146786" duration="4086000" />
+      <workItem from="1775638853191" duration="2450000" />
+      <workItem from="1777289640579" duration="500000" />
+      <workItem from="1777293233011" duration="79000" />
+      <workItem from="1777298983768" duration="1836000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: README file moved">
       <option name="closed" value="true" />
@@ -266,7 +243,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774281130218</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: update routing to make public pages accessible without authentication">
+      <option name="closed" value="true" />
+      <created>1777299174919</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1777299174919</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: update service links to remove redundant path segments">
+      <option name="closed" value="true" />
+      <created>1777300176176</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777300176176</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +272,10 @@
     <MESSAGE value="feat: amélioration de la vue Accueil et Bâtiments avec des statistiques et une mise en page améliorée" />
     <MESSAGE value="feat: ajout de Batiments.vue pour le management d'appartements en fonction des bâtiments" />
     <MESSAGE value="refactor: renommer les champs de collection pour la cohérence dans les modèles et modification du style du tableau de bord" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: renommer les champs de collection pour la cohérence dans les modèles et modification du style du tableau de bord" />
+    <MESSAGE value="feat: add locataire details to contrat and update related components" />
+    <MESSAGE value="feat: update routing to make public pages accessible without authentication" />
+    <MESSAGE value="fix: update service links to remove redundant path segments" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: update service links to remove redundant path segments" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

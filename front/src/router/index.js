@@ -23,7 +23,12 @@ const routes = [
   { path: '/accueil', component: PublicHomeView, meta: { requiresAuth: false, isPublic: true } },
 
   // 2. Les pages d'infos (Rendues publiques : requiresAuth à false)
-  { path: '/services', component: ServicesView, meta: { requiresAuth: false, isPublic: true } },
+  // Dans router/index.js
+  {
+    path: '/services',
+    component: ServicesView,
+    meta: { requiresAuth: false, isPublic: true } // Doit être à false
+  },
   { path: '/confidentialite', component: PrivacyPolicy, meta: { requiresAuth: false, isPublic: true } },
   { path: '/conditions', component: TermsOfUse, meta: { requiresAuth: false, isPublic: true } },
   { path: '/contact', component: ContactPage, meta: { requiresAuth: false, isPublic: true } },
