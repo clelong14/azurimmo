@@ -9,7 +9,7 @@
         </div>
         <nav class="header-nav">
           <router-link to="/accueil" class="nav-link active">Accueil</router-link>
-          <router-link to="/accueil/services" class="nav-link">Services</router-link>
+          <router-link to="/services" class="nav-link">Services</router-link>
         </nav>
         <div class="header-actions">
           <button class="theme-btn" @click="toggleTheme" :title="isDark ? 'Mode clair' : 'Mode sombre'">
