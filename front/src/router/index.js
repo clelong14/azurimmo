@@ -16,11 +16,12 @@ import TermsOfUse        from '@/views/TermsOfUse.vue'
 import ContactPage       from '@/views/ContactPage.vue'
 
 const routes = [
+
   { path: '/login', component: LoginView, meta: { public: true } },
   { path: '/register', component: RegisterView, meta: { public: true } },
 
   // 1. La page d'atterrissage pour les visiteurs (Non connectés)
-  { path: '/accueil', component: PublicHomeView, meta: { requiresAuth: false, isPublic: true } },
+  { path:'/', redirect: '/accueil', component: PublicHomeView, meta: { requiresAuth: false, isPublic: true } },
 
   // 2. Les pages d'infos (Rendues publiques : requiresAuth à false)
   // Dans router/index.js
