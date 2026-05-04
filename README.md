@@ -1,99 +1,312 @@
-# Azurimmo - Application de Gestion Immobilière
+# Azurimmo
 
-Azurimmo est une API RESTful centralisée pour la gestion complète des biens immobiliers (bâtiments, appartements), des contrats, des locataires, des loyers et des interventions (réparations, maintenance) pour la société civile immobilière AzurImmo.
+Application de gestion immobilière developpee avec Spring Boot. Elle expose une API RESTful permettant de gerer des batiments, des appartements, des contrats de location, des locataires, des loyers et des interventions de maintenance.
 
-Elle est développée à l'aide du framework **Spring Boot** en Java.
+---
 
-### Architecture Applicative
+## Architecture
 
-L'application est divisée en trois couches:
-1.  **Couche de présentation (Frontend)** : Interface web.
-2.  **Couche métier (Backend)** : Une API Rest centralisée (cette application).
-3.  **Couche de données (Database)** : Base de données **MariaDB**.
+L'application suit une architecture trois tiers :
 
-### Pré-requis
+- **Frontend** : Interface web statique (HTML/CSS/JS) ou application Vue.js
+- **Backend** : API REST Spring Boot
+- **Base de donnees** : MariaDB
 
--   **JDK** : Version 21 ou supérieure.
--   **Maven** : importation dans Eclipse.
--   **MariaDB** : Pour la base de données (avec un outil comme WampServer/phpmyadmin).
--   **Eclipse IDE** : Version pour le développement web.
--   **Postman** : Outil de test.
+---
+
+## Prerequis
+
+| Outil | Version recommandee |
+|---|---|
+| JDK | 21 ou superieure |
+| Maven | 3.x (import Eclipse) |
+| MariaDB | Compatible avec le dialecte `MariaDBDialect` |
+| Eclipse IDE | Version Java EE |
+| Postman | Pour tester les endpoints |
+
+---
 
 ## Installation
 
-Le projet a été initialisé via Spring Initializr (`https://start.spring.io/`).
+### 1. Base de donnees
 
-### Configuration de la Base de Données
+Creer une base de donnees nommee `azurimmo` dans MariaDB via phpMyAdmin ou la ligne de commande :
 
-1.  Créez la base de données nommée `azurimmo` (ou autre nom si modifié dans la configuration) sous MariaDB (via phpmyadmin).
-2.  Dans le fichier `src/main/resources/application.properties`, adaptez les lignes de configuration de la base de données et du serveur Tomcat si nécessaire (par défaut, port Tomcat: 9008, port MariaDB: 3307).
+```sql
+CREATE DATABASE azurimmo;
+```
+
+### 2. Configuration
+
+Adapter le fichier `src/main/resources/application.properties` selon votre environnement :
 
 ```properties
-# Tomcat configuration
-server.port = 9008
+server.port=9008
 
-# Mariadb Database configuration
 spring.datasource.url=jdbc:mariadb://localhost:3307/azurimmo
 spring.datasource.username=root
 spring.datasource.password=
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
-spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
 ```
-### Note : Le port 9008 est configuré pour le serveur Spring Boot.
 
-## Importation du projet dans Eclipse
-1. Dézippez le fichier du projet (e.g., azurimmo.zip).
+### 3. Import dans Eclipse
 
-2. Lancez Eclipse.
+1. Dezippez le projet.
+2. Ouvrez Eclipse.
+3. Allez dans **File > Import > Maven > Existing Maven Projects**.
+4. Selectionnez le dossier du projet.
 
-3. Utilisez File | Import | Maven | Existing Maven Projects et sélectionnez le dossier azurimmo.
+---
 
-## Démarrage
-<ol>
-  <li>Assurez-vous que votre serveur de base de données (MariaDB) est démarré.</li>
-  <li>Exécutez l'application via Eclipse:</li>
-</ol>
+## Demarrage
 
-<ul>
-  <li>Cliquez sur le petit triangle vert, ou</li>
-  <li>Faites un clic droit sur la classe principale AzurimmoApplication.java, puis Run as Java Application.</li>
-</ul>
-L'application démarrera le serveur Tomcat embarqué sur le port configuré (par défaut 9008).
+1. Assurez-vous que MariaDB est demarre.
+2. Lancez l'application depuis Eclipse :
+   - Clic droit sur `AzurimmoApplication.java` > **Run As > Java Application**
+   - Ou utilisez le bouton d'execution directement.
 
-## Endpoints de l'API (Ressource Batiment)
-La Base URL est http://localhost:9008. Les endpoints de base pour l'entité Batiment sont automatiquement exposés par Spring Data REST.
-| Action  | Méthode HTTP | Endpoint (Exemple) | Description |
-| :--------------- | :--------------- | :---------------| :--------------- |
-| Récupérer la liste des bâtiments  | GET |  /batiments | Retourne tous les bâtiments.
-| Récupérer un bâtiment précis  | GET | /batiments/{id} |Retourne le bâtiment avec l'ID spécifié.
-| Créer un nouveau bâtiment | POST | /batiments | Ajoute un nouvel bâtiment.
-| Mettre à jour un bâtiment | PUT | /batiments/{id} | Met à jour le bâtiment spécifié.
-| Supprimer un bâtiment | DELETE | /batiments/{id} | Supprime le bâtiment spécifié.
+Le serveur Tomcat embarque demarre sur le port `9008` par defaut.
 
-## Documentation de l'API (Swagger/OpenAPI)
-L'API est documentée et testable via Swagger (OpenAPI).
+---
 
-URL de la Documentation Swagger: http://localhost:9008/swagger-ui/index.html
+## Endpoints de l'API
 
-## Commandes et Outils Utiles
-| Commande/Outil  | Description |
-| :--------------- | :--------------- |
-| ``mvn install`` | Pour construire le projet et télécharger toutes les dépendances.
-| Clic droit sur pom.xml | Maven
-| Postman | Outil essentiel pour tester les requêtes ``POST``, ``PUT``, ``DELETE``.
+La base URL est `http://localhost:9008/api`.
 
-## Fabriqué avec
-| Technologie | Rôle dans Azurimmo |
-| :--------------- | :--------------- |
-| Java (JDK 21) | Langage de développement principal.
-| Spring Boot (Framework Java) | Simplifie la création d'applications robustes.
-| Spring Data JPA | Persistance des données (ORM).
-| Spring Data REST | Exposition automatique des Repositories.
-| MariaDB | Base de données.
-| Lombok | Réduction du code répétitif (boilerplate code).
+### Batiments
 
-## Versions
-Dernière version : 1.0.1.
+| Methode | Endpoint | Description |
+|---|---|---|
+| GET | `/batiments/all` | Retourne tous les batiments |
+| GET | `/batiments/{id}` | Retourne un batiment par son ID |
+| GET | `/batiments/ville/{ville}` | Recherche par ville |
+| POST | `/batiments/` | Cree un nouveau batiment |
+
+### Appartements
+
+| Methode | Endpoint | Description |
+|---|---|---|
+| GET | `/appartements/all` | Retourne tous les appartements |
+| GET | `/appartements/{id}` | Retourne un appartement par son ID |
+| GET | `/appartements/batiment/{id}` | Appartements d'un batiment |
+| GET | `/appartements/ville/{ville}` | Appartements par ville |
+| GET | `/appartements/surface/{surface}` | Appartements avec surface minimale |
+| POST | `/appartements/` | Cree un nouvel appartement |
+
+### Contrats
+
+| Methode | Endpoint | Description |
+|---|---|---|
+| GET | `/contrats/all` | Retourne tous les contrats |
+| GET | `/contrats/{id}` | Retourne un contrat par son ID |
+| GET | `/contrats/contrat/{id}` | Contrats d'un appartement |
+| POST | `/contrats/` | Cree un nouveau contrat |
+
+### Locataires
+
+| Methode | Endpoint | Description |
+|---|---|---|
+| GET | `/locataires/all` | Retourne tous les locataires |
+| GET | `/locataires/{id}` | Retourne un locataire par son ID |
+| GET | `/locataires/locataire/{id}` | Locataires d'un contrat |
+| POST | `/locataires/` | Cree un nouveau locataire |
+
+### Loyers
+
+| Methode | Endpoint | Description |
+|---|---|---|
+| GET | `/loyers/all` | Retourne tous les loyers |
+| GET | `/loyers/{id}` | Retourne un loyer par son ID |
+| GET | `/loyers/loyer/{id}` | Loyers d'un contrat |
+| POST | `/loyers/` | Cree un nouveau loyer |
+
+### Interventions
+
+| Methode | Endpoint | Description |
+|---|---|---|
+| GET | `/interventions/all` | Retourne toutes les interventions |
+| GET | `/interventions/{id}` | Retourne une intervention par son ID |
+| GET | `/interventions/intervention/{id}` | Interventions d'un appartement |
+| POST | `/interventions/` | Cree une nouvelle intervention |
+
+---
+
+## Documentation Swagger
+
+L'API est documentee via Swagger UI, accessible une fois l'application demarree :
+
+```
+http://localhost:9008/swagger-ui/index.html
+```
+
+La specification OpenAPI brute est disponible a :
+
+```
+http://localhost:9008/api-docs
+```
+
+---
+
+## Structure du projet
+
+```
+azurimmo/
+├── back/
+│   └── src/main/java/bts/sio/azurimmo/
+│       ├── config/          # Configuration Swagger
+│       ├── controller/      # Controleurs REST
+│       ├── model/
+│       │   ├── dto/         # Objets de transfert de donnees
+│       │   └── mapper/      # Conversions entite <-> DTO
+│       ├── repository/      # Interfaces Spring Data JPA
+│       └── service/         # Logique metier
+└── front/                   # Application Vue.js (Vite)
+```
+
+---
+
+## Technologies
+
+| Technologie | Role |
+|---|---|
+| Java 21 | Langage principal |
+| Spring Boot | Framework applicatif |
+| Spring Data JPA | Persistence des donnees (ORM) |
+| MariaDB | Base de donnees relationnelle |
+| Lombok | Reduction du code repetitif |
+| Springdoc OpenAPI | Documentation Swagger |
+| Vue 3 + Vite | Interface frontend |
+| Axios | Requetes HTTP cote frontend |
+
+---
+
+## Mise en production interne
+
+Cette section decrit le deploiement de l'application sur un serveur interne (reseau local ou serveur d'entreprise), sans passer par un hebergeur cloud.
+
+### Prerequis sur le serveur
+
+- JDK 21 installe et accessible via `java -version`
+- MariaDB installe et demarre en tant que service
+- Acces reseau ouvert sur le port choisi (par defaut `9008`)
+
+### 1. Creer la base de donnees de production
+
+Se connecter a MariaDB sur le serveur et creer la base :
+
+```sql
+CREATE DATABASE azurimmo;
+CREATE USER 'azurimmo_user'@'localhost' IDENTIFIED BY 'mot_de_passe_securise';
+GRANT ALL PRIVILEGES ON azurimmo.* TO 'azurimmo_user'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+### 2. Configurer le profil de production
+
+Creer un fichier `src/main/resources/application-prod.properties` avec les parametres du serveur cible :
+
+```properties
+server.port=9008
+
+spring.datasource.url=jdbc:mariadb://localhost:3306/azurimmo
+spring.datasource.username=azurimmo_user
+spring.datasource.password=mot_de_passe_securise
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+```
+
+> Ne pas versionner ce fichier s'il contient des identifiants. L'ajouter au `.gitignore`.
+
+### 3. Generer le JAR executable
+
+Depuis la racine du projet `back/`, executer :
+
+```bash
+mvn clean package -DskipTests
+```
+
+Le JAR est genere dans `back/target/azurimmo-*.jar`.
+
+### 4. Transferer le JAR sur le serveur
+
+Copier le fichier via SCP, partage reseau ou tout autre moyen disponible :
+
+```bash
+scp target/azurimmo-0.0.1-SNAPSHOT.jar utilisateur@adresse-serveur:/opt/azurimmo/
+```
+
+### 5. Demarrer l'application
+
+Sur le serveur, lancer le JAR en activant le profil de production :
+
+```bash
+java -jar -Dspring.profiles.active=prod /opt/azurimmo/azurimmo-0.0.1-SNAPSHOT.jar
+```
+
+Pour un demarrage en arriere-plan avec journalisation :
+
+```bash
+nohup java -jar -Dspring.profiles.active=prod /opt/azurimmo/azurimmo-0.0.1-SNAPSHOT.jar > /opt/azurimmo/azurimmo.log 2>&1 &
+```
+
+### 6. Demarrage automatique au boot (Linux avec systemd)
+
+Creer le fichier de service `/etc/systemd/system/azurimmo.service` :
+
+```ini
+[Unit]
+Description=Azurimmo Spring Boot Application
+After=network.target mariadb.service
+
+[Service]
+User=www-data
+ExecStart=java -jar -Dspring.profiles.active=prod /opt/azurimmo/azurimmo-0.0.1-SNAPSHOT.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Activer et demarrer le service :
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable azurimmo
+sudo systemctl start azurimmo
+sudo systemctl status azurimmo
+```
+
+### 7. Deploiement du frontend Vue.js
+
+Depuis le dossier `front/`, generer les fichiers statiques :
+
+```bash
+npm install
+npm run build
+```
+
+Les fichiers sont produits dans `front/dist/`. Les copier dans le dossier servi par le backend Spring Boot (`back/src/main/resources/static/`) avant de regenerer le JAR, ou les servir via un serveur web separé (Nginx, Apache).
+
+### Verification
+
+Une fois l'application demarree, verifier son bon fonctionnement :
+
+```
+http://adresse-serveur:9008/swagger-ui/index.html
+http://adresse-serveur:9008/api/batiments/all
+```
+
+---
+
+## Version
+
+Version actuelle : **1.0.1**
